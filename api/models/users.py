@@ -1,8 +1,8 @@
 from sqlalchemy import Boolean, Column, Integer, String
 from sqlalchemy.orm import Session, relationship
 
-from . import schemas
-from .database import Base
+from api.models import schemas
+from api.database import Base
 
 
 class User(Base):
