@@ -24,7 +24,7 @@ def create_post(post: POST.PostCreate, db: Session = Depends(get_db)):
 
 
 @router.put("/{post_id}", response_model=POST.PostObject)
-def edit_post(post_id: int, post: POST.PostBase, db: Session = Depends(get_db)):
+def edit_post(post_id: int, post: POST.PostUpdate, db: Session = Depends(get_db)):
     old_post = db.query(POST.Post).get(post_id)
     if not old_post:
         raise HTTPException(status_code=404, detail="Post not found")
