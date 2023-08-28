@@ -10,15 +10,19 @@ db = SessionLocal()
 
 class PostBase(BaseModel):
     body: str
+    author_id: int
 
 
 class PostCreate(PostBase):
-    author_id: int
+    pass
+
+
+class PostUpdate(PostBase):
+    pass
 
 
 class PostObject(PostBase):
     id: int
-    author_id: int
     timestamp: datetime
 
     class Config:
