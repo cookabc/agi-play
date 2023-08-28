@@ -1,8 +1,7 @@
 from pydantic import BaseModel
 from sqlalchemy import Boolean, Column, Integer, String
-from sqlalchemy.orm import Session, relationship
+from sqlalchemy.orm import Session
 
-from .items import ItemObject
 from ..database import Base
 
 
@@ -17,7 +16,6 @@ class UserCreate(UserBase):
 class UserObject(UserBase):
     id: int
     is_active: bool
-    items: list[ItemObject] = []
 
     class Config:
         orm_mode = True
@@ -30,8 +28,6 @@ class User(Base):
     email = Column(String, unique=True, index=True)
     hashed_password = Column(String)
     is_active = Column(Boolean, default=True)
-
-    items = relationship("Item", back_populates="owner")
 
 
 def get_user(db: Session, user_id: int):
@@ -47,7 +43,7 @@ def get_users(db: Session, skip: int = 0, limit: int = 100):
 
 
 def create_user(db: Session, user: UserCreate):
-    fake_hashed_password = user.password + "notreallyhashed"
+    fake_hashed_password = user.password + "not_really_hashed"
     db_user = User(email=user.email, hashed_password=fake_hashed_password)
     db.add(db_user)
     db.commit()
