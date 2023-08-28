@@ -2,6 +2,7 @@ from datetime import datetime
 
 from pydantic import BaseModel
 from sqlalchemy import Boolean, Column, DateTime, Integer, Text, ForeignKey
+from sqlalchemy.orm import relationship
 
 from ..database import Base, SessionLocal
 
@@ -32,3 +33,4 @@ class Comment(Base):
     disabled = Column(Boolean, default=False)
     author_id = Column(Integer, ForeignKey('users.id'))
     post_id = Column(Integer, ForeignKey('posts.id'))
+    post = relationship("Post", back_populates="comments")
