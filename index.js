@@ -134,6 +134,7 @@ async function app() {
     recognizer = speechCommands.create('BROWSER_FFT');
     await recognizer.ensureModelLoaded();
     // predictWord();
+    buildModel();
 }
 
 app();
