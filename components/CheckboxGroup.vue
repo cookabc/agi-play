@@ -46,10 +46,15 @@ defineExpose({
 <style lang="less">
 .checkbox-list {
   display: flex;
-  padding-bottom: 30px;
+  padding-bottom: 10px;
 
   .check-all {
+    align-self: baseline;
     flex: 0 0 70px;
+
+    .ant-checkbox {
+      display: inline-block;
+    }
   }
 
   .ant-checkbox-group {
