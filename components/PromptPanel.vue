@@ -58,4 +58,7 @@ const goChat = (prompt) => {
 .prompt-subtitle {
   margin-bottom: 15px;
 }
+.prompt-item {
+  max-width: 550px;
+}
 </style>
