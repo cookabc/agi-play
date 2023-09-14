@@ -2,7 +2,7 @@
 import {Response} from "~/types/response";
 
 export async function getChatList(session_id: string) {
-    return await $fetch('/api/chat/list', {
+    return await $fetch('/chat/list', {
         method: 'POST',
         query: {session_id},
     }) as Response
@@ -10,7 +10,7 @@ export async function getChatList(session_id: string) {
 
 // 对话
 export async function makeChat(body: any) {
-    return await $fetch('/api/chat/do', {
+    return await $fetch('/chat/do', {
         method: 'POST',
         body: body,
     }) as Response
