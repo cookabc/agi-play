@@ -6,10 +6,7 @@ type Prompt = {
     id: number
     title: string
     category: string
-    tags: {
-        hot: boolean
-        favorite: boolean
-    }
+    hot: boolean
 }
 
 export const usePromptStore = defineStore('prompt', {
@@ -17,9 +14,9 @@ export const usePromptStore = defineStore('prompt', {
         promptList: [] as Prompt[],
     }),
     getters: {
-        hotPromptList: (state) => state.promptList.filter(item => item.tags.hot),
+        hotPromptList: (state) => state.promptList.filter(item => item.hot),
         allPromptOptions: (state) => [...new Set(state.promptList.map(item => item.category))],
-        hotPromptOptions: (state) => [...new Set(state.promptList.filter(item => item.tags.hot).map(item => item.category))],
+        hotPromptOptions: (state) => [...new Set(state.promptList.filter(item => item.hot).map(item => item.category))],
     },
     actions: {
         async getPromptList(name = '') {
