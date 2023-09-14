@@ -89,6 +89,9 @@ onMounted(async () => {
 </script>
 
 <style lang="less">
+.prompt-bottom {
+  background-color: var(--ant-primary-color-3);
+}
 .custom-tabs {
   .ant-tabs {
     &-tab {
