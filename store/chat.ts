@@ -30,7 +30,7 @@ export const useChatStore = defineStore('chat', {
                 }
                 const response = await getDefaultPrompts()
                 if (response.code === 0) {
-                    this.defaultPrompts = response.data.prompts || []
+                    this.defaultPrompts = response.data || []
                 } else {
                     this.defaultPrompts = []
                 }
