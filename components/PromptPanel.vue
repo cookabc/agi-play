@@ -52,19 +52,10 @@ const goChat = (prompt) => {
 }
 </script>
 <style scoped lang="less">
-.highlight {
-  color: #0099CC;
+.prompt-title {
+  font-size: 18px;
 }
-
-.v-enter-active,
-.v-leave-active {
-  transition: all .5s ease;
-}
-
-.v-enter-from,
-.v-leave-to {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: all .28s ease;
+.prompt-subtitle {
+  margin-bottom: 15px;
 }
 </style>
