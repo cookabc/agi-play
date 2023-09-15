@@ -18,7 +18,7 @@
           <a-tag :title="prompt.category" class="max-w-[80%] overflow-hidden whitespace-nowrap text-ellipsis">
             {{ prompt.category }}
           </a-tag>
-          <a-button type="primary" shape="round" @click="goChat(prompt)">AI助理
+          <a-button type="primary" shape="round" @click="goChat(prompt)">CHAT
             <swap-right-outlined/>
           </a-button>
         </div>

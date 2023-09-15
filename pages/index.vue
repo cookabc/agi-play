@@ -1,18 +1,20 @@
 <template>
   <div class="prompt-wrapper w-full">
     <div class="prompt-top bg-white pt-8 px-[10%] pb-0">
-      <h2 class="title text-center m-0 text-3xl tracking-widest">Prompt指令集</h2>
-      <h3 class="slogan text-center mt-2 mx-0 mb-0 font-normal text-base tracking-widest">激活AI魔力，使用如此简单</h3>
+      <h2 class="title text-center m-0 text-3xl tracking-widest">PROMPTS</h2>
+      <h3 class="slogan text-center mt-2 mx-0 mb-0 font-normal text-base tracking-widest">
+        Activate AI magic, use it so effortlessly.
+      </h3>
       <a-tabs v-model:activeKey="state.activeKey" class="custom-tabs">
         <template #rightExtra>
-          <a-input-search v-model:value="state.promptSearch" allow-clear placeholder="搜索指令"
+          <a-input-search v-model:value="state.promptSearch" allow-clear placeholder="Search"
                           @input="handleSearchDebounce"/>
         </template>
-        <a-tab-pane key="all" tab="全部">
+        <a-tab-pane key="all" tab="ALL">
           <checkbox-group v-if="allPromptOptions.length" ref="allPromptCheckboxRef" :options="allPromptOptions"
                           @change="onAllCheckboxChange"/>
         </a-tab-pane>
-        <a-tab-pane key="hot" tab="热门🔥">
+        <a-tab-pane key="hot" tab="HOT🔥">
           <checkbox-group v-if="hotPromptOptions.length" ref="hotPromptCheckboxRef" :options="hotPromptOptions"
                           @change="onHotCheckboxChange"/>
         </a-tab-pane>
@@ -92,6 +94,7 @@ onMounted(async () => {
 .prompt-bottom {
   background-color: var(--ant-primary-color-3);
 }
+
 .custom-tabs {
   .ant-tabs {
     &-tab {

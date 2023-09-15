@@ -6,7 +6,7 @@
         <template #icon>
           <plus-outlined/>
         </template>
-        新建对话
+        NEW
       </a-button>
     </div>
     <div class="history-session relative flex-1 overflow-y-auto">

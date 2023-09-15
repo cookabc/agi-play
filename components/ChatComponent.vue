@@ -16,7 +16,7 @@
                       lg:w-[calc(100%-115px)] rounded-xl">
             <text-component :text="message?.prompt"/>
             <div class="flex">
-              <a-button type="text" size="small" class="ml-auto" title="复制"
+              <a-button type="text" size="small" class="ml-auto" title="Copy"
                         @click="onCopy(message.prompt)">
                 <copy-outlined/>
               </a-button>

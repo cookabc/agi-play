@@ -9,11 +9,11 @@
       <div class="flex-1">
         <div class="greeting px-7 py-4 bg-[var(--ant-primary-color-3)] rounded-xl">
           <h2 class="greeting-title text-2xl text-[var(--ant-primary-color)] font-semibold mb-4">
-            您好，我是您的AI助理
+            Hi there, I'm you AI assistant!
           </h2>
-          <p class="text-base text-[#333] mb-0">我可以解答您的问题，为您提供信息，帮您完成创作</p>
+          <p class="text-base text-[#333] mb-0">I can answer your questions, provide information, and assist with your work.</p>
         </div>
-        <h3 class="font-semibold text-base text-[#333] mt-6 mb-7">试试这样问我：</h3>
+        <h3 class="font-semibold text-base text-[#333] mt-6 mb-7">Try asking me like this:</h3>
         <ul class="list-none p-0 m-0">
           <li class="bg-white text-base cursor-pointer text-[#333] mb-6 px-5 py-1 rounded-xl"
               v-for="prompt of defaultPrompts" :key="prompt.id" @click="sendPromptMessage(prompt)">

@@ -5,7 +5,7 @@
         v-model:checked="state.checkAll"
         :indeterminate="state.indeterminate"
         @change="onCheckAllChange">
-      全部
+      ALL
     </a-checkbox>
     <a-checkbox-group v-model:value="state.checkedList" :options="options"/>
   </div>

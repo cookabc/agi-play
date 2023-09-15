@@ -11,7 +11,7 @@
             :maxlength="2000"
             :show-count="true"
             :auto-size="{ minRows: 2, maxRows: 8 }" v-model:value="state.chatValue"
-            placeholder="请在此输入您要提问的内容"
+            placeholder="Please enter your question here..."
             @keydown="onSendMsg"/>
         <a-button type="primary"
                   size="large"
@@ -19,7 +19,7 @@
                   native-type="submit"
                   @click="sendMessage"
                   :disabled="state.isDisabled || !state.chatValue">
-          发送
+          SNED
           <send-outlined/>
         </a-button>
       </div>
@@ -45,7 +45,7 @@ const sendMessage = async () => {
   try {
     let text = state.chatValue
     if (text === '' || /^\s+$/.test(text)) {
-      message.warn('请输入你的消息')
+      message.warn('Input your question')
       return
     }
     state.isDisabled = true
