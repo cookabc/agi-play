@@ -191,6 +191,12 @@ const createNewChat = () => {
 }
 </script>
 <style lang="less">
+.create-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .history-session {
   &-search {
     .ant-input-affix-wrapper {
