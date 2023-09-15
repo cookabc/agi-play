@@ -1,11 +1,10 @@
 <template>
-  <div v-if="state.loading"
-       class="absolute w-full h-full flex justify-center items-center text-3xl">
+  <div v-if="state.loading" class="absolute w-full h-full flex justify-center items-center text-3xl">
     <loading-outlined/>
   </div>
   <div v-else>
     <template v-if="state.messages.length > 0" v-for="message of state.messages" :key="message.id">
-      <div class="group message-item w-full" :class="[message.messages[0].role, message.id]">
+      <div class="group message-item w-full">
         <div
             class="flex p-4 gap-2 text-base md:gap-6 md:max-w-2xl lg:max-w-[38rem] xl:max-w-5xl md:py-4 lg:px-0 m-auto">
           <div class="flex-shrink-0 flex flex-col relative items-end">
@@ -15,17 +14,17 @@
           </div>
           <div class="message-content relative bg-[var(--ant-primary-color-3)] flex flex-col gap-1 md:gap-3 p-4
                       lg:w-[calc(100%-115px)] rounded-xl">
-            <text-component :text="message?.messages?.[0]?.content"/>
+            <text-component :text="message?.prompt"/>
             <div class="flex">
               <a-button type="text" size="small" class="ml-auto" title="复制"
-                        @click="onCopy(message.messages[0].content)">
+                        @click="onCopy(message.prompt)">
                 <copy-outlined/>
               </a-button>
             </div>
           </div>
         </div>
       </div>
-      <div class="group message-item w-full" :class="[message.messages[1].role, message.id]">
+      <div class="group message-item w-full">
         <div
             class="flex p-4 gap-2 text-base md:gap-6 md:max-w-2xl lg:max-w-[38rem] xl:max-w-5xl md:py-4 lg:px-0 m-auto">
           <div class="flex-shrink-0 flex flex-col relative items-end">
@@ -35,10 +34,10 @@
           </div>
           <div
               class="message-content relative flex w-[calc(100%-50px)] flex-col lg:w-[calc(100%-115px)] bg-white p-4 rounded-xl">
-            <text-component :text="message?.messages?.[1]?.content"/>
+            <text-component :text="message?.response"/>
             <div class="flex">
               <a-button type="text" size="small" class="ml-auto" title="复制"
-                        @click="onCopy(message.messages[1].content)">
+                        @click="onCopy(message.response)">
                 <copy-outlined/>
               </a-button>
             </div>
