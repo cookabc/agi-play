@@ -16,8 +16,7 @@
                       lg:w-[calc(100%-115px)] rounded-xl">
             <text-component :text="message?.prompt"/>
             <div class="flex">
-              <a-button type="text" size="small" class="ml-auto" title="Copy"
-                        @click="onCopy(message.prompt)">
+              <a-button type="text" size="small" class="ml-auto" title="Copy" @click="onCopy(message.prompt)">
                 <copy-outlined/>
               </a-button>
             </div>
@@ -36,8 +35,7 @@
               class="message-content relative flex w-[calc(100%-50px)] flex-col lg:w-[calc(100%-115px)] bg-white p-4 rounded-xl">
             <text-component :text="message?.response"/>
             <div class="flex">
-              <a-button type="text" size="small" class="ml-auto" title="复制"
-                        @click="onCopy(message.response)">
+              <a-button type="text" size="small" class="ml-auto" title="复制" @click="onCopy(message.response)">
                 <copy-outlined/>
               </a-button>
             </div>
@@ -99,3 +97,8 @@ onMounted(async () => {
   await getChatList(route.query.sessionId)
 })
 </script>
+<style scoped lang="less">
+.ml-auto {
+  padding-right: 0;
+}
+</style>

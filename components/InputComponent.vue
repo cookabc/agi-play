@@ -85,10 +85,16 @@ const onSendMsg = (e) => {
 .ant-input-textarea-show-count {
   &::after {
     position: absolute;
-    right: 16px;
-    bottom: 0;
+    right: -90px;
+    bottom: -8px;
     font-size: 14px;
   }
+}
+
+.rounded-lg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>
 <style lang="less">
