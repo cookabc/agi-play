@@ -27,16 +27,14 @@
   </div>
 </template>
 <script setup>
-import {reactive, ref, onMounted} from 'vue'
+import {reactive} from 'vue'
 import {SendOutlined} from '@ant-design/icons-vue'
 import {message} from "ant-design-vue";
 import {useChatStore} from "~/store";
-import {scrollToBottomIfAtBottom} from "~/utils/useScroll";
 
 const route = useRoute()
 const chatStore = useChatStore()
 const state = reactive({
-  promptId: computed(() => route.query.promptId),
   sessionId: computed(() => route.query.sessionId),
   chatValue: '',
   isDisabled: false
@@ -45,32 +43,22 @@ const state = reactive({
 const sendMessage = async () => {
   if (state.isDisabled) return
   try {
-    const promptId = state.promptId
     let text = state.chatValue
     if (text === '' || /^\s+$/.test(text)) {
       message.warn('请输入你的消息')
       return
     }
-    text = encodeHtmlEntities(text)
     state.isDisabled = true
-    await scrollToBottomIfAtBottom()
-    const data = {
-      id: state.sessionId || null,
-      prompt_id: promptId,
-      prompt: text,
+    const payload = {
+      sessionId: state.sessionId,
+      prompt: state.chatValue,
     }
-    await chatStore.sendMessage(data)
+    await chatStore.sendMessage(payload)
   } catch (error) {
     console.warn('[ sendMessage error ]', error)
   } finally {
     state.isDisabled = false
   }
-}
-
-const encodeHtmlEntities = (str) => {
-  const tempEl = document.createElement("div");
-  tempEl.innerText = str
-  return tempEl.innerHTML
 }
 
 const onSendMsg = (e) => {
@@ -79,18 +67,6 @@ const onSendMsg = (e) => {
     sendMessage()
   }
 }
-
-const messageRef = ref(null)
-const onFocus = () => {
-  messageRef.value?.focus()
-}
-defineExpose({
-  onFocus
-})
-
-onMounted(() => {
-  console.log(state.promptId)
-})
 </script>
 <style scoped lang="less">
 .textarea {
