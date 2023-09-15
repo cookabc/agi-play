@@ -16,57 +16,55 @@
             <h4 class="session-date text-[#d7d7d7] text-xs pl-6 sticky top-0 bg-[var(--ant-primary-color-2)] z-10 mb-0 pb-1">
               {{ key }}</h4>
             <ul class="list-none p-0 m-0">
-              <transition-group>
-                <li v-for="item in sessions" :key="item.id" :id="`session-${item.id}`"
-                    class="session-item transition-all duration-300 font-normal h-11 text-sm text-[#fff] hover:text-[var(--font-color-333)] hover:bg-white"
-                    :class="item.id === $route.query.s || item.active ? 'text-[var(--font-color-333)] bg-white' : ''"
-                    @click="handleSwitchChat(item)">
-                  <div v-if="item.enableEdit" class="session-edit relative h-full flex items-center py-2.5 pl-7 pr-16">
-                    <a-input ref="newSessionRef" v-model:value="state.newSessionName"
-                             class="text-sm p-0 h-7 bg-[#f5f5f5]" @blur="handleInputBlur(item)"/>
-                    <div class="session-operate absolute right-0">
-                      <a-button type="text" size="small" class="text-[var(--font-color-333)]"
-                                @click.stop="handleEditConfirm(item)">
-                        <check-outlined/>
-                      </a-button>
-                      <a-button type="text" size="small" class="text-[var(--font-color-333)]">
-                        <close-outlined/>
-                      </a-button>
-                    </div>
+              <li v-for="item in sessions" :key="item.id" :id="`session-${item.id}`"
+                  class="session-item transition-all duration-300 font-normal h-11 text-sm text-[#fff] hover:text-[var(--font-color-333)] hover:bg-white"
+                  :class="item.id === state.sessionId ? 'text-[var(--font-color-333)] bg-white' : ''"
+                  @click="handleSwitchChat(item)">
+                <div v-if="item.enableEdit" class="session-edit relative h-full flex items-center py-2.5 pl-7 pr-16">
+                  <a-input ref="newSessionRef" v-model:value="state.newSessionName"
+                           class="text-sm p-0 h-7 bg-[#f5f5f5]" @blur="handleInputBlur(item)"/>
+                  <div class="session-operate absolute right-0">
+                    <a-button type="text" size="small" class="text-[var(--font-color-333)]"
+                              @click.stop="handleEditConfirm(item)">
+                      <check-outlined/>
+                    </a-button>
+                    <a-button type="text" size="small" class="text-[var(--font-color-333)]">
+                      <close-outlined/>
+                    </a-button>
                   </div>
-                  <div v-else-if="item.enableDelete"
-                       class="session-delete relative h-full flex items-center py-2.5 pl-7 pr-16">
-                    <div class="session-name flex items-center max-w-[100%]" :title="`删除【${item.name}】吗？`">删除【<span
-                        class="text-ellipsis overflow-hidden whitespace-nowrap flex-1">{{ item.name }}</span>】吗？
-                    </div>
-                    <div class="session-operate absolute right-0">
-                      <a-button type="text" size="small" class="text-[var(--font-color-333)]"
-                                @click.stop="handleDeleteConfirm(key, item)">
-                        <check-outlined/>
-                      </a-button>
-                      <a-button type="text" size="small" class="text-[var(--font-color-333)]"
-                                @click.stop="handleDeleteCancel(item)">
-                        <close-outlined/>
-                      </a-button>
-                    </div>
+                </div>
+                <div v-else-if="item.enableDelete"
+                     class="session-delete relative h-full flex items-center py-2.5 pl-7 pr-16">
+                  <div class="session-name flex items-center max-w-[100%]" :title="`删除【${item.name}】吗？`">删除【<span
+                      class="text-ellipsis overflow-hidden whitespace-nowrap flex-1">{{ item.name }}</span>】吗？
                   </div>
-                  <div v-else class="session-link cursor-pointer relative h-full flex items-center py-2.5 px-7"
-                       :class="item.id === $route.query.sessionId || item.active  ? 'pr-16' : ''">
-                    <div class="session-name overflow-hidden text-ellipsis whitespace-nowrap">{{ item.name }}</div>
-                    <div class="session-operate absolute right-0"
-                         :class="item.id === $route.query.sessionId || item.active ? '' : 'hidden'">
-                      <a-button type="text" size="small" class="text-[var(--font-color-333)]" title="编辑"
-                                @click.stop="handleEdit(item)">
-                        <edit-outlined/>
-                      </a-button>
-                      <a-button type="text" size="small" class="text-[var(--font-color-333)]" title="删除"
-                                @click.stop="handleDelete(item)">
-                        <delete-outlined/>
-                      </a-button>
-                    </div>
+                  <div class="session-operate absolute right-0">
+                    <a-button type="text" size="small" class="text-[var(--font-color-333)]"
+                              @click.stop="handleDeleteConfirm(key, item)">
+                      <check-outlined/>
+                    </a-button>
+                    <a-button type="text" size="small" class="text-[var(--font-color-333)]"
+                              @click.stop="handleDeleteCancel(item)">
+                      <close-outlined/>
+                    </a-button>
                   </div>
-                </li>
-              </transition-group>
+                </div>
+                <div v-else class="session-link cursor-pointer relative h-full flex items-center py-2.5 px-7"
+                     :class="item.id === state.sessionId  ? 'pr-16' : ''">
+                  <div class="session-name overflow-hidden text-ellipsis whitespace-nowrap">{{ item.name }}</div>
+                  <div class="session-operate absolute right-0"
+                       :class="item.id === state.sessionId ? '' : 'hidden'">
+                    <a-button type="text" size="small" class="text-[var(--font-color-333)]" title="编辑"
+                              @click.stop="handleEdit(item)">
+                      <edit-outlined/>
+                    </a-button>
+                    <a-button type="text" size="small" class="text-[var(--font-color-333)]" title="删除"
+                              @click.stop="handleDelete(item)">
+                      <delete-outlined/>
+                    </a-button>
+                  </div>
+                </div>
+              </li>
             </ul>
           </div>
         </template>
@@ -98,6 +96,7 @@ const newSessionRef = ref('')
 const state = reactive({
   loading: false,
   newSessionName: '',
+  sessionId: computed(() => route.query.sessionId ? parseInt(route.query.sessionId) : ''),
   sessionList: computed(() => sessionStore.formattedSessionList()),
 })
 
@@ -116,7 +115,7 @@ const getSessionList = async () => {
 onMounted(async () => {
   await getSessionList()
   setTimeout(() => {
-    document.getElementById(`session-${route.query.sessionId}`)?.scrollIntoView({
+    document.getElementById(`session-${state.sessionId}`)?.scrollIntoView({
       behavior: 'auto',
       block: 'center',
       inline: 'center'
@@ -125,7 +124,7 @@ onMounted(async () => {
 })
 
 const handleSwitchChat = (item) => {
-  if (item.id === route.query.sessionId || item?.active) return
+  if (item.id === state.sessionId) return
   router.push({
     path: '/chat',
     query: {sessionId: item.id},
