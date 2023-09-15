@@ -43,18 +43,10 @@ export const useChatStore = defineStore('chat', {
                 const response = await makeChat(payload)
                 if (response.code === 0) {
                     this.messages.push({
-                        id: '',
-                        messages: [
-                            {
-                                role: 'user',
-                                content: payload.prompt
-                            },
-                            {
-                                role: 'assistant',
-                                content: response.data.text
-                            }
-                        ] as ConcreteMessage[]
+                        ...payload,
+                        response: response.data
                     })
+                    console.log(this.messages)
                 }
             } catch (error) {
                 console.warn('[ sendMessage error ]', error)
