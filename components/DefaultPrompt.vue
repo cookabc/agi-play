@@ -28,13 +28,16 @@
 import {computed} from 'vue'
 import {useChatStore} from "~/store";
 
+const route = useRoute()
 const chatStore = useChatStore()
 const defaultPrompts = computed(() => chatStore.defaultPrompts)
 
 const sendPromptMessage = (prompt) => {
+  if (!prompt) return
   try {
     chatStore.sendMessage({
-      text: prompt.prompt
+      sessionId: route.query.sessionId,
+      prompt: prompt.prompt
     })
   } catch (error) {
     console.warn('[ sendPromptMessage error ] ', error)
