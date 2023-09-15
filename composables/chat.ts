@@ -1,10 +1,10 @@
 // 获取历史对话
 import {Response} from "~/types/response";
 
-export async function getChatList(session_id: string) {
+export async function getChatList(sessionId: string) {
     return await $fetch('/chat/list', {
         method: 'POST',
-        query: {session_id},
+        query: {sessionId},
     }) as Response
 }
 

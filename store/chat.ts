@@ -1,7 +1,7 @@
 import {defineStore} from 'pinia'
 import {getChatList, makeChat} from "~/composables/chat";
 import {getDefaultPrompts} from "~/composables/prompt";
-import {ConcreteMessage, Message} from "~/types/message";
+import {Message} from "~/types/message";
 
 export const useChatStore = defineStore('chat', {
     state: () => ({
@@ -10,9 +10,9 @@ export const useChatStore = defineStore('chat', {
     }),
     getters: {},
     actions: {
-        async getMessageList(session_id: string) {
+        async getMessageList(sessionId: string) {
             try {
-                const response = await getChatList(session_id)
+                const response = await getChatList(sessionId)
                 if (response.code === 0) {
                     this.messages = response.data
                 }
