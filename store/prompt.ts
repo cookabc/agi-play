@@ -6,6 +6,8 @@ type Prompt = {
     id: number
     title: string
     category: string
+    summary: string
+    prompt: string
     hot: boolean
 }
 

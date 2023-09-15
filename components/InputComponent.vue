@@ -27,17 +27,25 @@
   </div>
 </template>
 <script setup>
-import {reactive} from 'vue'
+import {onMounted, reactive} from 'vue'
 import {SendOutlined} from '@ant-design/icons-vue'
 import {message} from "ant-design-vue";
-import {useChatStore} from "~/store";
+import {useChatStore, usePromptStore} from "~/store";
 
 const route = useRoute()
 const chatStore = useChatStore()
+const promptStore = usePromptStore()
 const state = reactive({
   sessionId: computed(() => route.query.sessionId),
   chatValue: '',
   isDisabled: false
+})
+
+onMounted(() => {
+  const promptId = route.query.promptId
+  if (promptId) {
+    state.chatValue = promptStore.promptList.filter(item => item.id === Number(promptId))[0]?.prompt
+  }
 })
 
 const sendMessage = async () => {
