@@ -20,7 +20,10 @@
         </a-tab-pane>
       </a-tabs>
     </div>
-    <div class="prompt-bottom px-[10%]">
+    <div v-if="state.loading" class="w-full h-full flex justify-center items-center text-3xl">
+      <loading-outlined/>
+    </div>
+    <div v-else class="prompt-bottom px-[10%]">
       <div class="panel-box py-8">
         <prompt-panel v-show="state.activeKey === 'all'" :prompts="state.promptList"/>
         <prompt-panel v-show="state.activeKey === 'hot'" :prompts="state.hotPromptList"/>
@@ -33,6 +36,7 @@
 import {usePromptStore} from '@/store'
 import {debounce} from "lodash-es";
 import {onMounted} from "vue";
+import {LoadingOutlined} from "@ant-design/icons-vue";
 
 const promptStore = usePromptStore()
 const allPromptOptions = computed(() => promptStore.allPromptOptions)
@@ -41,6 +45,7 @@ const originPromptList = computed(() => promptStore.promptList)
 const originHotPromptList = computed(() => promptStore.hotPromptList)
 
 const state = reactive({
+  loading: true,
   activeKey: 'all',
   promptSearch: '',
   promptList: [],
@@ -66,6 +71,7 @@ const loadData = () => {
 
 const getPromptList = async (value = '') => {
   try {
+    state.loading = true
     await promptStore.getPromptList(state.promptSearch)
     if (!value) {
       if (state.activeKey === 'hot') {
@@ -77,6 +83,8 @@ const getPromptList = async (value = '') => {
     loadData()
   } catch (error) {
     console.warn('[ getPromptList error ]', error)
+  } finally {
+    state.loading = false
   }
 }
 
