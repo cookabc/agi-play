@@ -35,8 +35,8 @@
                 </div>
                 <div v-else-if="item.enableDelete"
                      class="session-delete relative h-full flex items-center py-2.5 pl-7 pr-16">
-                  <div class="session-name flex items-center max-w-[100%]" :title="`删除【${item.name}】吗？`">删除【<span
-                      class="text-ellipsis overflow-hidden whitespace-nowrap flex-1">{{ item.name }}</span>】吗？
+                  <div class="session-name flex items-center max-w-[100%]" :title="`Delete【${item.name}】`">
+                    Delete【<span class="text-ellipsis overflow-hidden whitespace-nowrap flex-1">{{ item.name }}</span>】
                   </div>
                   <div class="session-operate absolute right-0">
                     <a-button type="text" size="small" class="text-[var(--font-color-333)]"
@@ -54,11 +54,11 @@
                   <div class="session-name overflow-hidden text-ellipsis whitespace-nowrap">{{ item.name }}</div>
                   <div class="session-operate absolute right-0"
                        :class="item.id === state.sessionId ? '' : 'hidden'">
-                    <a-button type="text" size="small" class="text-[var(--font-color-333)]" title="编辑"
+                    <a-button type="text" size="small" class="text-[var(--font-color-333)]" title="Edit"
                               @click.stop="handleEdit(item)">
                       <edit-outlined/>
                     </a-button>
-                    <a-button type="text" size="small" class="text-[var(--font-color-333)]" title="删除"
+                    <a-button type="text" size="small" class="text-[var(--font-color-333)]" title="Edit"
                               @click.stop="handleDelete(item)">
                       <delete-outlined/>
                     </a-button>

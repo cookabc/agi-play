@@ -95,11 +95,11 @@ function classifyListByTime(list: Session[]) {
     thirtyDaysAgo.setDate(today.getDate() - 30);  // 获取30天前的日期
 
     const result = {
-        "今天": [],
-        "昨天": [],
-        "近7天": [],
-        "近30天": [],
-        "30天以前": []
+        "Today": [],
+        "Yesterday": [],
+        "Last 7 Days": [],
+        "Last 30 Days": [],
+        "30 Days Ago": []
     } as any;
 
     // 遍历列表数据，根据时间进行分类
@@ -109,15 +109,15 @@ function classifyListByTime(list: Session[]) {
         // var monthYear = itemDate.getMonth() + 1 + "-" + itemDate.getFullYear();  // 获取月份和年份，格式为 MM-YYYY
 
         if (isSameDay(itemDate, today)) {
-            result["今天"].push(item);
+            result["Today"].push(item);
         } else if (isSameDay(itemDate, yesterday)) {
-            result["昨天"].push(item);
+            result["Yesterday"].push(item);
         } else if (itemDate >= sevenDaysAgo && itemDate <= today) {
-            result["近7天"].push(item);
+            result["Last 7 Days"].push(item);
         } else if (itemDate >= thirtyDaysAgo && itemDate <= today) {
-            result["近30天"].push(item);
+            result["Last 30 Days"].push(item);
         } else if (itemDate < thirtyDaysAgo) {
-            result["30天以前"].push(item);
+            result["30 Days Ago"].push(item);
         }
     }
 
