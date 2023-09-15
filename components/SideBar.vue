@@ -11,15 +11,6 @@
     </div>
     <div class="history-session relative flex-1 overflow-y-auto">
       <div class="session-list py-2.5 relative">
-        <div
-            class="session-item transition-all duration-300 font-normal h-11 text-sm text-[#fff] hover:text-[var(--font-color-333)] hover:bg-white mb-2"
-            :class="'0' === $route.query.sessionId ? 'text-[var(--font-color-333)] bg-white' : ''"
-            @click="handleSwitchChat({id: '0'})">
-          <div class="session-link cursor-pointer relative h-full flex items-center py-2.5 px-7"
-               :class="'0' === $route.query.sessionId  ? 'pr-16' : ''">
-            <div class="session-name overflow-hidden text-ellipsis whitespace-nowrap">默认会话</div>
-          </div>
-        </div>
         <template v-for="(sessions, key) of state.sessionList" :key="key">
           <div class="session-box mb-2.5" v-if="sessions.length">
             <h4 class="session-date text-[#d7d7d7] text-xs pl-6 sticky top-0 bg-[var(--ant-primary-color-2)] z-10 mb-0 pb-1">
