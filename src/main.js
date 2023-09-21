@@ -1,4 +1,5 @@
 import './assets/main.css'
+import '@/progress'
 
 import {createApp} from 'vue'
 import {createPinia} from 'pinia'
