@@ -1,4 +1,5 @@
-import './assets/main.css'
+import 'uno.css'
+
 import '@/progress'
 
 import {createApp} from 'vue'
