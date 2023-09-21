@@ -1,5 +1,8 @@
 import 'uno.css'
 
+import '@/styles/reset.css'
+import '@/styles/variables.less'
+import '@/styles/global.less'
 import '@/progress'
 
 import {createApp} from 'vue'
