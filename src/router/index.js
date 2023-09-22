@@ -9,12 +9,16 @@ const router = createRouter({
             component: () => import("@/views/index.vue")
         },
         {
-            path: 'train',
+            path: '/train',
             name: 'Train',
             component: () => import("@/views/train/index.vue"),
-            meta: {
-                title: "项目"
-            },
+            children: [
+                {
+                    path: 'image',
+                    name: 'TrainImage',
+                    component: () => import("@/views/train/image/index.vue"),
+                },
+            ]
         }
     ]
 })
