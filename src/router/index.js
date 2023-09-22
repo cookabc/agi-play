@@ -7,6 +7,14 @@ const router = createRouter({
             path: '/',
             name: 'Home',
             component: () => import("@/views/index.vue")
+        },
+        {
+            path: 'train',
+            name: 'Train',
+            component: () => import("@/views/train/index.vue"),
+            meta: {
+                title: "项目"
+            },
         }
     ]
 })
