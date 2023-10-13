@@ -1,7 +1,14 @@
+import {getRows} from "~/database";
+import {Response} from "~/types/response";
+
 export default defineEventHandler(async (event) => {
-    return await $fetch(useRuntimeConfig().baseURL + '/api/v2/session/chats',
-        {
-            query: getQuery(event)
-        }
-    )
+    const sessionId = getQuery(event).sessionId
+    let sql = `
+        SELECT prompt, response
+            FROM message
+            WHERE session_id = ${sessionId}
+              AND deleted_at IS NULL
+            ORDER BY created_at
+    `
+    return {code: 0, data: await getRows(sql), message: 'OK'} as Response;
 });
