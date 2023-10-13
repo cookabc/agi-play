@@ -1,7 +1,7 @@
 import {getRows} from "~/database";
 import {Response} from "~/types/response";
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async () => {
     let sql = `
         SELECT p.id,
                pc.name    as category,
