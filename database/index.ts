@@ -31,3 +31,15 @@ export const getRow = function (sql: string) {
         });
     });
 }
+
+export const updateRow = function (sql: string) {
+    return new Promise<void>(function (resolve, reject) {
+        DB.run(sql, (err) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve();
+            }
+        });
+    });
+}
