@@ -4,14 +4,14 @@ import {Response} from "~/types/response";
 export default defineEventHandler(async () => {
     let sql = `
         SELECT p.id,
-               pc.name    as category,
-               pc."order" as category_order,
-               p.title,
-               p.summary,
-               p.prompt,
-               p."order"  as prompt_order,
-               p.hot,
-               FALSE
+            pc.name    as category,
+            pc."order" as category_order,
+            p.title,
+            p.summary,
+            p.prompt,
+            p."order"  as prompt_order,
+            p.hot,
+            FALSE
         FROM prompt p
                  JOIN prompt_category pc ON p.category_id = pc.id
         WHERE p.hot = true
