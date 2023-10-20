@@ -19,7 +19,7 @@
                   native-type="submit"
                   @click="sendMessage"
                   :disabled="state.isDisabled || !state.chatValue">
-          SNED
+          SEND
           <send-outlined/>
         </a-button>
       </div>
