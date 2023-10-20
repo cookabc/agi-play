@@ -3,7 +3,7 @@ import {Response} from "~/types/response";
 
 export default defineEventHandler(async (event) => {
     const body = await readBody(event) as { id: string; name: string };
-    let sql = `
+    const sql = `
         UPDATE session
         SET name = '${body.name}'
         WHERE id = ${body.id} AND deleted_at IS NULL

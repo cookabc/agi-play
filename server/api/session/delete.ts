@@ -5,7 +5,7 @@ export default defineEventHandler(async (event) => {
     const body = await readBody(event) as { id: string };
     const now = new Date();
     const formattedDate = now.toISOString().slice(0, 19).replace("T", " ");
-    let sql = `
+    const sql = `
         UPDATE session
         SET deleted_at = '${formattedDate}'
         WHERE id = ${body.id}

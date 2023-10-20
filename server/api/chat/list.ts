@@ -3,7 +3,7 @@ import {Response} from "~/types/response";
 
 export default defineEventHandler(async (event) => {
     const sessionId = getQuery(event).sessionId
-    let sql = `
+    const sql = `
         SELECT prompt, response
         FROM message
         WHERE session_id = ${sessionId}
