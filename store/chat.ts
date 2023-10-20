@@ -46,7 +46,6 @@ export const useChatStore = defineStore('chat', {
                         ...payload,
                         response: response.data
                     })
-                    console.log(this.messages)
                 }
             } catch (error) {
                 console.warn('[ sendMessage error ]', error)

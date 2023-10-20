@@ -9,12 +9,8 @@ export const useSessionStore = defineStore('session', {
     }),
     getters: {
         formattedSessionList() {
-            return (name: string) => {
-                const formatList = name ? this.sessionList.filter((item: Session) => {
-                    name = name.toLowerCase()
-                    return item.name.toLowerCase().includes(name)
-                }) : this.sessionList
-                const sortedList = _sort(formatList) as Session[]
+            return () => {
+                const sortedList = _sort(this.sessionList) as Session[]
                 return classifyListByTime(sortedList)
             }
         },
