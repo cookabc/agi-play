@@ -30,11 +30,12 @@
 import {onMounted, reactive} from 'vue'
 import {SendOutlined} from '@ant-design/icons-vue'
 import {message} from "ant-design-vue";
-import {useChatStore, usePromptStore} from "~/store";
+import {useChatStore, usePromptStore, useSessionStore} from "~/store";
 
 const route = useRoute()
 const chatStore = useChatStore()
 const promptStore = usePromptStore()
+const sessionStore = useSessionStore()
 const state = reactive({
   sessionId: computed(() => route.query.sessionId),
   chatValue: '',
@@ -62,6 +63,8 @@ const sendMessage = async () => {
       prompt: state.chatValue,
     }
     await chatStore.sendMessage(payload)
+    await sessionStore.getSessionList()
+    state.chatValue = ''
   } catch (error) {
     console.warn('[ sendMessage error ]', error)
   } finally {

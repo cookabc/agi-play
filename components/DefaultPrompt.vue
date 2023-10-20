@@ -11,7 +11,8 @@
           <h2 class="greeting-title text-2xl text-[var(--ant-primary-color)] font-semibold mb-4">
             Hi there, I'm you AI assistant!
           </h2>
-          <p class="text-base text-[#333] mb-0">I can answer your questions, provide information, and assist with your work.</p>
+          <p class="text-base text-[#333] mb-0">I can answer your questions, provide information, and assist with your
+            work.</p>
         </div>
         <h3 class="font-semibold text-base text-[#333] mt-6 mb-7">Try asking me like this:</h3>
         <ul class="list-none p-0 m-0">
@@ -26,19 +27,22 @@
 </template>
 <script setup>
 import {computed} from 'vue'
-import {useChatStore} from "~/store";
+import {useChatStore, useSessionStore} from "~/store";
 
 const route = useRoute()
 const chatStore = useChatStore()
+const sessionStore = useSessionStore()
 const defaultPrompts = computed(() => chatStore.defaultPrompts)
 
-const sendPromptMessage = (prompt) => {
+const sendPromptMessage = async (prompt) => {
   if (!prompt) return
   try {
-    chatStore.sendMessage({
+    await chatStore.sendMessage({
       sessionId: route.query.sessionId,
-      prompt: prompt.prompt
+      prompt: prompt.prompt,
+      from_id: prompt.id
     })
+    await sessionStore.getSessionList()
   } catch (error) {
     console.warn('[ sendPromptMessage error ] ', error)
   }
