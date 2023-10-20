@@ -43,3 +43,16 @@ export const updateRow = function (sql: string) {
         });
     });
 }
+
+
+export const updateRowWithReturnId = function (sql: string) {
+    return new Promise<number>((resolve, reject) => {
+        DB.run(sql, function (err) {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(this.lastID);
+            }
+        });
+    });
+}
