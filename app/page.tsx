@@ -171,10 +171,11 @@ export default function Home() {
                                                 />
                                             </div>
                                             <div className="p-[24px] rounded-xl">
-                                                <div className="text-ellipsis" title={item.title}>
+                                                <div className="mb-2 text-ellipsis font-bold" title={item.title}>
                                                     {item.title}
                                                 </div>
-                                                <div className="line-clamp-4" title={item.description}>
+                                                <div className="line-clamp-4 text-sm text-slate-500"
+                                                     title={item.description}>
                                                     {item.description}
                                                 </div>
                                             </div>
