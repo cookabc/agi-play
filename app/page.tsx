@@ -154,7 +154,7 @@ export default function Home() {
                         </h2>
                     </div>
                     <div className="px-[10%] py-4">
-                        <div className="flex flex-wrap mx--4 gap-y-8">
+                        <div className="flex flex-wrap mx-[-1rem] gap-y-8">
                             {section.children.map((item, itemIdx) => (
                                 <div key={itemIdx}
                                      className="2xl:w-1/5 xl:w-1/4 lg:w-1/3 md:w-1/2 sm:w-full w-full px-4">
