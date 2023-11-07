@@ -1,3 +1,5 @@
+import type {Metadata} from 'next'
+
 import './globals.css'
 import {Inter} from 'next/font/google'
 import React from "react";
@@ -10,7 +12,7 @@ const inter = Inter({
     variable: "--font-in",
 });
 
-export const metadata = {
+export const metadata: Metadata = {
     title: 'AGISchool - AGI学园 - AI教学平台',
 }
 
