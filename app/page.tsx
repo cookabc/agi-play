@@ -153,22 +153,22 @@ export default function Home() {
                             {section.name}
                         </h2>
                     </div>
-                    <div className="px-10% py-4">
+                    <div className="px-[10%] py-4">
                         <div className="flex flex-wrap mx--4 gap-y-8">
-                            {section.children.map((item, childIndex) => (
-                                <div key={childIndex}
+                            {section.children.map((item, itemIdx) => (
+                                <div key={itemIdx}
                                      className="2xl:w-1/5 xl:w-1/4 lg:w-1/3 md:w-1/2 sm:w-full w-full px-4">
-                                    <a href={item.url} className="block h-full shadow-sm rounded-8" target="_blank">
-                                        <div>
+                                    <a href={item.url} className="block h-full shadow-sm" target="_blank">
+                                        <div className="w-full h-[200px] relative">
                                             <Image
-                                                src={`${item.imgUrl}?timestamp=${Date.now()}_${childIndex}`}
+                                                src={`${item.imgUrl}?timestamp=${Date.now()}_${itemIdx}`}
                                                 alt={item.title}
                                                 className="object-cover border border-solid border-[#f0f0f0]"
-                                                width={100}
-                                                height={200}
+                                                fill
+                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                                             />
                                         </div>
-                                        <div>
+                                        <div className="p-[24px]">
                                             <div className="text-ellipsis" title={item.title}>
                                                 {item.title}
                                             </div>
