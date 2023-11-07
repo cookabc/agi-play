@@ -158,7 +158,7 @@ export default function Home() {
                             {section.children.map((item, itemIdx) => (
                                 <div key={itemIdx}
                                      className="2xl:w-1/5 xl:w-1/4 lg:w-1/3 md:w-1/2 sm:w-full w-full px-4">
-                                    <a href={item.url} className="block h-full rounded-xl hover:shadow-xl"
+                                    <a href={item.url} className="block h-full border-[1px] rounded-xl hover:shadow-xl"
                                        target="_blank">
                                         <div className="rounded-xl">
                                             <div className="w-full h-[200px] relative">
