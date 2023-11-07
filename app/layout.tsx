@@ -22,7 +22,8 @@ const cx = (...classNames: string[]) => classNames.filter(Boolean).join(" ");
 export default function RootLayout({children}: { children: React.ReactNode }) {
     return (
         <html lang="en">
-        <body className={cx(inter.variable, "font-mr bg-light dark:bg-dark")}>
+        <body
+            className={cx(inter.variable, "font-mr bg-light dark:bg-dark") + ' flex flex-col h-screen justify-between'}>
         <Header/>
         {children}
         <Footer/>
