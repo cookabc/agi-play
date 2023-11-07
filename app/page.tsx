@@ -147,10 +147,9 @@ export default function Home() {
     return (
         <div>
             {sections.map((section, index) => (
-                <div key={index} className="py-2">
-                    <div className="bg-white sticky top-0 py-2 z-1 px-10%">
-                        <h2 className="relative flex items-center">
-                            <span className="before:block w-4px h-24px bg-[#7260af] mr-2"></span>
+                <div key={index} className="py-4">
+                    <div className="bg-white sticky top-0 py-2 z-1 px-[10%] text-2xl">
+                        <h2 className="relative flex items-center before:content-empty before:block before:w-1 before:h-6 before:bg-[#7260af] before:mr-2">
                             {section.name}
                         </h2>
                     </div>
