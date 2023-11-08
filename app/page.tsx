@@ -14,12 +14,52 @@ interface Section {
 
 const sections: Section[] = [
     {
-        name: '视觉工具/实验',
+        name: '大模型',
+        children: [
+            {
+                title: '绘画模型工具',
+                url: '',
+                imgUrl: '/assets/images/draw.jpg',
+                description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
+            },
+            {
+                title: '语言模型工具',
+                url: 'https://chat-agischool.vercel.app/',
+                imgUrl: '/assets/images/chat.png',
+                description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
+            },
+        ]
+    },
+    {
+        name: '游戏',
         children: [
             {
                 title: '图像分类游戏-Pacman',
                 url: '/pacman/',
                 imgUrl: '/assets/images/pacman.jpg',
+                description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
+            },
+            {
+                title: '声音分类游戏-贪食蛇',
+                url: '/snake/',
+                imgUrl: '/assets/images/snake.jpg',
+                description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
+            },
+            {
+                title: '声音分类游戏-寻找布谷鸟',
+                url: '/cuckoo/',
+                imgUrl: '/assets/images/cuckoo.jpg',
+                description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
+            },
+        ]
+    },
+    {
+        name: '实验',
+        children: [
+            {
+                title: '图像分类模型训练',
+                url: 'https://train-agischool.vercel.app/',
+                imgUrl: '/assets/images/train.jpg',
                 description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
             },
             {
@@ -35,40 +75,6 @@ const sections: Section[] = [
                 description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
             },
         ]
-    },
-    {
-        name: '语音工具/实验',
-        children: [
-            {
-                title: '声音分类游戏-贪食蛇',
-                url: '/snake/',
-                imgUrl: '/assets/images/snake.jpg',
-                description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
-            },
-            {
-                title: '声音分类游戏-寻找布谷鸟',
-                url: '/cuckoo/',
-                imgUrl: '/assets/images/cuckoo.jpg',
-                description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
-            }
-        ]
-    },
-    {
-        name: '大模型专题',
-        children: [
-            {
-                title: '语言模型工具',
-                url: 'https://chat.agischool.com.cn',
-                imgUrl: '/assets/images/chat.jpg',
-                description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
-            },
-            {
-                title: '绘画模型工具',
-                url: '#',
-                imgUrl: '/assets/images/chat.jpg',
-                description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
-            }
-        ]
     }
 ];
 
@@ -77,7 +83,7 @@ export default function Home() {
         <div>
             {sections.map((section, index) => (
                 <div key={index} className="py-4">
-                    <div className="bg-white sticky top-0 py-2 z-1 px-[10%] text-2xl">
+                    <div className="bg-white sticky top-0 py-2 z-1 px-[10%] text-2xl z-10">
                         <h2 className="relative flex items-center before:content-empty before:block before:w-1 before:h-6 before:bg-[#7260af] before:mr-2">
                             {section.name}
                         </h2>
