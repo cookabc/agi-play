@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "dev": "parcel ./src/index.html --open",
-    "build": "rimraf dist && parcel build --no-scope-hoist --no-source-maps ./src/index.html --public-url /cuckoo && cp -r dist ../public/cuckoo"
+    "build": "rimraf dist && parcel build --no-scope-hoist --no-source-maps ./src/index.html --public-url /cuckoo && cp -r dist ../public/cuckoo/"
   },
   "author": "",
   "license": "ISC",
