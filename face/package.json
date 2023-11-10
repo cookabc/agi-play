@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "dev": "parcel ./src/index.html --open",
-    "build": "rimraf dist && parcel build --no-scope-hoist --no-source-maps ./src/index.html --public-url /face && cp -r dist/ ../public/face/"
+    "build": "rimraf ../public/face && rimraf dist && parcel build --no-scope-hoist --no-source-maps ./src/index.html --public-url /face && cp -r dist/ ../public/face/"
   },
   "author": "",
   "license": "ISC",

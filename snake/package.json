@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "dev": "parcel ./src/index.html --open",
-    "build": "rimraf dist && parcel build --no-scope-hoist --no-source-maps ./src/index.html --public-url /snake && cp -r dist/ ../public/snake/"
+    "build": "rimraf ../public/snake && rimraf dist && parcel build --no-scope-hoist --no-source-maps ./src/index.html --public-url /snake && cp -r dist/ ../public/snake/"
   },
   "author": "",
   "license": "ISC",
