@@ -24,7 +24,7 @@ const sections: Section[] = [
             },
             {
                 title: '语言模型工具',
-                url: 'https://chat-agischool.vercel.app/',
+                url: 'https://chat-agischool.vercel.app',
                 imgUrl: '/static/images/chat.png',
                 description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
             },
@@ -35,19 +35,19 @@ const sections: Section[] = [
         children: [
             {
                 title: '图像分类游戏-Pacman',
-                url: '/pacman/',
-                imgUrl: '/static/images/pacman.jpg',
+                url: '/pacman',
+                imgUrl: '/static/images/pacman_game.png',
                 description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
             },
             {
                 title: '声音分类游戏-贪食蛇',
-                url: '/snake/',
-                imgUrl: '/static/images/snake.jpg',
+                url: '/snake',
+                imgUrl: '/static/images/snake_game.png',
                 description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
             },
             {
                 title: '声音分类游戏-寻找布谷鸟',
-                url: '/cuckoo/',
+                url: '/cuckoo',
                 imgUrl: '/static/images/cuckoo.jpg',
                 description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
             },
@@ -58,20 +58,32 @@ const sections: Section[] = [
         children: [
             {
                 title: '图像分类模型训练',
-                url: 'https://train-agischool.vercel.app/',
-                imgUrl: '/static/images/train.jpg',
+                url: '/train/image',
+                imgUrl: '/static/images/image_train.png',
+                description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
+            },
+            {
+                title: '声音分类模型训练',
+                url: '/train/image',
+                imgUrl: '/static/images/audio_train.png',
+                description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
+            },
+            {
+                title: '姿势分类模型训练',
+                url: '/train/pose',
+                imgUrl: '/static/images/pose_man.png',
                 description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
             },
             {
                 title: '人体检测工具',
-                url: '/pose/',
+                url: '/pose',
                 imgUrl: '/static/images/pose.jpg',
                 description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
             },
             {
                 title: '人脸检测工具',
-                url: '/face/',
-                imgUrl: '/static/images/face.png',
+                url: '/face',
+                imgUrl: '/static/images/face_man.png',
                 description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
             },
         ]
