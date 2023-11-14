@@ -14,6 +14,29 @@ interface Section {
 
 const sections: Section[] = [
     {
+        name: '实验',
+        children: [
+            {
+                title: '图像分类模型训练',
+                url: '/train/image',
+                imgUrl: '/static/images/image_train_fv.png',
+                description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
+            },
+            {
+                title: '声音分类模型训练',
+                url: '/train/image',
+                imgUrl: '/static/images/audio_train_fv.png',
+                description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
+            },
+            {
+                title: '姿势分类模型训练',
+                url: '/train/pose',
+                imgUrl: '/static/images/pose_train_fv.png',
+                description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
+            }
+        ]
+    },
+    {
         name: '游戏',
         children: [
             {
@@ -37,26 +60,8 @@ const sections: Section[] = [
         ]
     },
     {
-        name: '实验',
+        name: '工具',
         children: [
-            {
-                title: '图像分类模型训练',
-                url: '/train/image',
-                imgUrl: '/static/images/image_train_fv.png',
-                description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
-            },
-            {
-                title: '声音分类模型训练',
-                url: '/train/image',
-                imgUrl: '/static/images/audio_train_fv.png',
-                description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
-            },
-            {
-                title: '姿势分类模型训练',
-                url: '/train/pose',
-                imgUrl: '/static/images/pose_train_fv.png',
-                description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
-            },
             {
                 title: '人体检测工具',
                 url: '/pose',
@@ -72,18 +77,24 @@ const sections: Section[] = [
         ]
     },
     {
-        name: '大模型',
+        name: '外部链接',
         children: [
             {
-                title: '绘画模型工具',
+                title: '绘画小程序',
                 url: '',
-                imgUrl: '/static/images/draw.jpg',
+                imgUrl: '/static/images/ai_draw.png',
                 description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
             },
             {
-                title: '语言模型工具',
+                title: '聊天助手',
                 url: 'https://chat-agischool.vercel.app',
-                imgUrl: '/static/images/chat.png',
+                imgUrl: '/static/images/ai_chat.png',
+                description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
+            },
+            {
+                title: 'AI训练场',
+                url: 'https://play-agischool.vercel.app',
+                imgUrl: '/static/images/ai_train.png',
                 description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
             },
         ]
