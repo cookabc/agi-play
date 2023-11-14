@@ -93,7 +93,7 @@ const sections: Section[] = [
             },
             {
                 title: 'AI训练场',
-                url: 'https://play-agischool.vercel.app',
+                url: 'https://train-agischool.vercel.app',
                 imgUrl: '/static/images/ai_train.png',
                 description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
             },
