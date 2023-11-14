@@ -17,7 +17,7 @@ const sections: Section[] = [
         name: '游戏',
         children: [
             {
-                title: '图像分类游戏-Pacman',
+                title: '图像分类游戏-吃豆人',
                 url: '/pacman',
                 imgUrl: '/static/images/pacman_game.png',
                 description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
@@ -42,25 +42,25 @@ const sections: Section[] = [
             {
                 title: '图像分类模型训练',
                 url: '/train/image',
-                imgUrl: '/static/images/image_train.png',
+                imgUrl: '/static/images/image_train_fv.png',
                 description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
             },
             {
                 title: '声音分类模型训练',
                 url: '/train/image',
-                imgUrl: '/static/images/audio_train.png',
+                imgUrl: '/static/images/audio_train_fv.png',
                 description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
             },
             {
                 title: '姿势分类模型训练',
                 url: '/train/pose',
-                imgUrl: '/static/images/pose_man.png',
+                imgUrl: '/static/images/pose_train_fv.png',
                 description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
             },
             {
                 title: '人体检测工具',
                 url: '/pose',
-                imgUrl: '/static/images/pose.jpg',
+                imgUrl: '/static/images/pose_man.png',
                 description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
             },
             {
