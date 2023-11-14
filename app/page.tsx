@@ -14,23 +14,6 @@ interface Section {
 
 const sections: Section[] = [
     {
-        name: '大模型',
-        children: [
-            {
-                title: '绘画模型工具',
-                url: '',
-                imgUrl: '/static/images/draw.jpg',
-                description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
-            },
-            {
-                title: '语言模型工具',
-                url: 'https://chat-agischool.vercel.app',
-                imgUrl: '/static/images/chat.png',
-                description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
-            },
-        ]
-    },
-    {
         name: '游戏',
         children: [
             {
@@ -87,7 +70,24 @@ const sections: Section[] = [
                 description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
             },
         ]
-    }
+    },
+    {
+        name: '大模型',
+        children: [
+            {
+                title: '绘画模型工具',
+                url: '',
+                imgUrl: '/static/images/draw.jpg',
+                description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
+            },
+            {
+                title: '语言模型工具',
+                url: 'https://chat-agischool.vercel.app',
+                imgUrl: '/static/images/chat.png',
+                description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
+            },
+        ]
+    },
 ];
 
 export default function Home() {
