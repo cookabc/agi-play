@@ -19,13 +19,13 @@ const sections: Section[] = [
             {
                 title: '绘画模型工具',
                 url: '',
-                imgUrl: '/assets/images/draw.jpg',
+                imgUrl: '/static/images/draw.jpg',
                 description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
             },
             {
                 title: '语言模型工具',
                 url: 'https://chat-agischool.vercel.app/',
-                imgUrl: '/assets/images/chat.png',
+                imgUrl: '/static/images/chat.png',
                 description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
             },
         ]
@@ -36,19 +36,19 @@ const sections: Section[] = [
             {
                 title: '图像分类游戏-Pacman',
                 url: '/pacman/',
-                imgUrl: '/assets/images/pacman.jpg',
+                imgUrl: '/static/images/pacman.jpg',
                 description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
             },
             {
                 title: '声音分类游戏-贪食蛇',
                 url: '/snake/',
-                imgUrl: '/assets/images/snake.jpg',
+                imgUrl: '/static/images/snake.jpg',
                 description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
             },
             {
                 title: '声音分类游戏-寻找布谷鸟',
                 url: '/cuckoo/',
-                imgUrl: '/assets/images/cuckoo.jpg',
+                imgUrl: '/static/images/cuckoo.jpg',
                 description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
             },
         ]
@@ -59,19 +59,19 @@ const sections: Section[] = [
             {
                 title: '图像分类模型训练',
                 url: 'https://train-agischool.vercel.app/',
-                imgUrl: '/assets/images/train.jpg',
+                imgUrl: '/static/images/train.jpg',
                 description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
             },
             {
                 title: '人体检测工具',
                 url: '/pose/',
-                imgUrl: '/assets/images/pose.jpg',
+                imgUrl: '/static/images/pose.jpg',
                 description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
             },
             {
                 title: '人脸检测工具',
                 url: '/face/',
-                imgUrl: '/assets/images/face.png',
+                imgUrl: '/static/images/face.png',
                 description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
             },
         ]
