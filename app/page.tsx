@@ -20,19 +20,19 @@ const sections: Section[] = [
                 title: '图像分类模型训练',
                 url: '/train/image',
                 imgUrl: '/static/images/image_train_fv.png',
-                description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
+                description: '使用文件或摄像头图片，进行图像分类模型训练。'
             },
             {
                 title: '声音分类模型训练',
                 url: '/train/image',
                 imgUrl: '/static/images/audio_train_fv.png',
-                description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
+                description: '基于文件或麦克风时长不超过 1 秒的声音，进行模型训练。'
             },
             {
                 title: '姿势分类模型训练',
                 url: '/train/pose',
                 imgUrl: '/static/images/pose_train_fv.png',
-                description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
+                description: '使用文件或摄像头图片，进行姿势模型训练。'
             }
         ]
     },
@@ -43,19 +43,19 @@ const sections: Section[] = [
                 title: '图像分类游戏-吃豆人',
                 url: '/pacman',
                 imgUrl: '/static/images/pacman_game.png',
-                description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
+                description: '爸爸小时候用键盘和手柄玩吃豆人（Pacman）游戏，我现在用手势指挥我的吃豆人。'
             },
             {
                 title: '声音分类游戏-贪食蛇',
                 url: '/snake',
                 imgUrl: '/static/images/snake_game.png',
-                description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
+                description: '用手势指挥已经不酷了，让我用声音来控制贪食蛇吧，好cool!'
             },
             {
                 title: '声音分类游戏-寻找布谷鸟',
                 url: '/cuckoo',
                 imgUrl: '/static/images/cuckoo.jpg',
-                description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
+                description: '亚马逊森林中，一种布谷鸟就要灭绝了，我们来帮助科学家找到布谷鸟，保护好它们吧。'
             },
         ]
     },
@@ -66,13 +66,13 @@ const sections: Section[] = [
                 title: '人体检测工具',
                 url: '/pose',
                 imgUrl: '/static/images/pose_man.png',
-                description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
+                description: 'AI是如何识别出我的动作的？看一下就明白了。'
             },
             {
                 title: '人脸检测工具',
                 url: '/face',
                 imgUrl: '/static/images/face_man.png',
-                description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
+                description: '一起来了解下人脸打卡机是如何实现的吧！'
             },
         ]
     },
@@ -83,19 +83,19 @@ const sections: Section[] = [
                 title: '绘画小程序',
                 url: '',
                 imgUrl: '/static/images/ai_draw.png',
-                description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
+                description: 'GPT模型是如何帮助我提高生活、工作和学习的效率的？快来试试吧，这里有好多应用等你来探索。'
             },
             {
                 title: '聊天助手',
                 url: 'https://chat-agischool.vercel.app',
                 imgUrl: '/static/images/ai_chat.png',
-                description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
+                description: '用文字把我想画的内容生成出来，好cool，还支持水墨画、油画、插图、剪纸等各种风格。'
             },
             {
                 title: 'AI训练场',
                 url: 'https://train-agischool.vercel.app',
                 imgUrl: '/static/images/ai_train.png',
-                description: 'lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ips'
+                description: '使用文件或摄像头图片，进行图像分类模型训练。'
             },
         ]
     },
