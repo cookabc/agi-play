@@ -20,19 +20,19 @@ const sections: Section[] = [
                 title: '图像分类模型训练',
                 url: '/train/image',
                 imgUrl: '/static/images/image_train_fv.png',
-                description: '使用文件或摄像头图片，进行图像分类模型训练。'
+                description: '上传图片文件或摄像头拍摄照片，进行图像分类模型训练。'
             },
             {
                 title: '声音分类模型训练',
                 url: '/train/image',
                 imgUrl: '/static/images/audio_train_fv.png',
-                description: '基于文件或麦克风时长不超过 1 秒的声音，进行模型训练。'
+                description: '上传音频文件或麦克风录制音频，进行音频分类模型训练。'
             },
             {
                 title: '姿势分类模型训练',
                 url: '/train/pose',
                 imgUrl: '/static/images/pose_train_fv.png',
-                description: '使用文件或摄像头图片，进行姿势模型训练。'
+                description: '上传图片文件或摄像头拍摄照片，进行姿势模型训练。'
             }
         ]
     },
@@ -49,7 +49,7 @@ const sections: Section[] = [
                 title: '声音分类游戏-贪食蛇',
                 url: '/snake',
                 imgUrl: '/static/images/snake_game.png',
-                description: '用手势指挥已经不酷了，让我用声音来控制贪食蛇吧，好cool!'
+                description: '用手势指挥已经不酷了，让我用声音来控制贪食蛇吧，好Cool!'
             },
             {
                 title: '声音分类游戏-寻找布谷鸟',
@@ -83,19 +83,19 @@ const sections: Section[] = [
                 title: '绘画小程序',
                 url: '',
                 imgUrl: '/static/images/ai_draw.png',
-                description: 'GPT模型是如何帮助我提高生活、工作和学习的效率的？快来试试吧，这里有好多应用等你来探索。'
+                description: '用文字把想画的内容生成出来，支持水墨画、油画、插图、剪纸等各种风格。'
             },
             {
                 title: '聊天助手',
                 url: 'https://chat-agischool.vercel.app',
                 imgUrl: '/static/images/ai_chat.png',
-                description: '用文字把我想画的内容生成出来，好cool，还支持水墨画、油画、插图、剪纸等各种风格。'
+                description: 'GPT模型是如何帮助大家提高效率的？这里有好多场景等你来探索，快来试试吧！'
             },
             {
                 title: 'AI训练场',
                 url: 'https://train-agischool.vercel.app',
                 imgUrl: '/static/images/ai_train.png',
-                description: '使用文件或摄像头图片，进行图像分类模型训练。'
+                description: '上传图片文件或摄像头拍摄照片，进行图像分类模型训练。'
             },
         ]
     },
