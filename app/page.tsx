@@ -107,7 +107,7 @@ export default function Home() {
             {sections.map((section, index) => (
                 <div key={index} className="py-4">
                     <div className="bg-white sticky top-0 py-2 z-1 px-[10%] text-2xl z-10">
-                        <h2 className="relative flex items-center before:content-empty before:block before:w-1 before:h-6 before:bg-[#7260af] before:mr-2">
+                        <h2 className="text-[var(--ant-primary-color)] relative flex items-center before:content-empty before:block before:w-1 before:h-6 before:bg-[#7260af] before:mr-2">
                             {section.name}
                         </h2>
                     </div>
@@ -129,7 +129,9 @@ export default function Home() {
                                                 />
                                             </div>
                                             <div className="p-[24px] rounded-xl">
-                                                <div className="mb-2 text-ellipsis font-bold" title={item.title}>
+                                                <div
+                                                    className="mb-2 text-ellipsis text-[var(--ant-primary-color)] font-bold"
+                                                    title={item.title}>
                                                     {item.title}
                                                 </div>
                                                 <div className="line-clamp-4 text-sm text-slate-500"
