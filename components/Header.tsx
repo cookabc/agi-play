@@ -2,9 +2,10 @@ import Image from 'next/image'
 
 export default function HeaderLayout() {
     return (
-        <header className="bg-slate-100 px-5 flex items-center">
-            <a href="/" className="mr-5 f-c-c">
-                <Image src="logo.svg" width={250} height={60} alt="Logo"/>
+        <header className="header fixed top-0 px-5 z-20 bg-white w-full h-[64px] flex"
+                style={{borderBottom: '1px solid var(--ant-primary-color)'}}>
+            <a href="/" className="mr-5 font-900 text-2xl flex items-center justify-center">
+                <Image src="logo.svg" height={60} width={250} alt="Logo"/>
             </a>
         </header>
     )
