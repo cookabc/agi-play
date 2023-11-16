@@ -109,7 +109,7 @@ const sections: Section[] = [
 
 export default function Home() {
     return (
-        <div>
+        <div className="mt-[64px]">
             {sections.map((section, index) => (
                 <div key={index} className="py-4">
                     <div className="bg-white sticky top-[64px] py-2 z-10 px-[10%] text-2xl">
