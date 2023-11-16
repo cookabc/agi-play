@@ -4,7 +4,6 @@ const FILE_NAMES = ['model.json', 'metadata.json', 'weights.bin']
 export const upload = {
   fileListDom: document.querySelector('#fileList'),
   fileList: [],
-  fileNames: [],
   messages: {
     enough: '感谢您的合作，您已经上传了足够的文件。现在，您可以继续点击提交按钮，以完成操作。',
     repeat: '感谢您的上传，该文件已经上传过，请不要重复上传。',
@@ -13,7 +12,6 @@ export const upload = {
   remove(filename) {
     const index = this.fileList.findIndex(item => item.name === filename)
     this.fileList.splice(index, 1)
-    this.fileNames.splice(index, 1)
     this.renderFileListHtml()
   },
   addRemoveEvent () {
@@ -24,20 +22,20 @@ export const upload = {
       }
     })
   },
-  validate(files) {
-    if (this.fileNames.length === FILE_NAMES.length) {
+  async validate(files) {
+    if (this.fileList.length === FILE_NAMES.length) {
       return this.messages.enough
     }
     let msg = ''
     for (let i = 0; i < files.length; i++) {
       const file = files[i]
-      if (this.fileNames.includes(file.name)) {
+      const isFileInArray = this.fileList.some(f => f.name === file.name);
+      if (isFileInArray) {
         msg = this.messages.repeat
         break
       }
       if (FILE_NAMES.includes(file.name)) {
-        this.fileNames.push(file.name)
-        this.fileList.push(file)
+        this.fileList = [...(this.fileList || []), file]
       } else {
         msg = this.messages.error
         break
@@ -54,16 +52,20 @@ export const upload = {
     for (let i = 0; i < this.fileList.length; i++) {
       const file = this.fileList[i]
       if (FILE_NAMES.includes(file.name)) {
-        html += `<li class='flex items-center py-1 border border-solid border-gray p-2 mb-1'><span class='text-lg font-bold'>${file.name}</span><button type='button' class='ml-auto bg-red-500 px-3 py-1 text-sm leading-5 rounded-full font-semibold text-white' data-name='${file.name}'>删除</button></li>`
+        html += `<li class='flex items-center py-1 border border-solid border-gray-400 p-2 mb-1 rounded-md'><span class='text-lg font-bold'>${file.name}</span><button type='button' class='ml-auto bg-red-500 px-3 py-1 text-sm leading-5 rounded-full font-semibold text-white border-0 cursor-pointer' data-name='${file.name}'>删除</button></li>`
       }
     }
     this.fileListDom.innerHTML = html
-    if (this.fileNames.length === FILE_NAMES.length && arraysHaveSameContent(this.fileNames, FILE_NAMES)) {
+    if (this.fileList.length === FILE_NAMES.length) {
       document.querySelector('#uploadModel').setAttribute('disabled', true)
       document.querySelector('#uploadSubmit').removeAttribute('disabled')
+      document.querySelector('#uploadSubmit').classList.add('bg-[#7260af]')
+      document.querySelector('#uploadSubmit').classList.remove('bg-gray-400')
     } else {
       document.querySelector('#uploadSubmit').setAttribute('disabled', true)
       document.querySelector('#uploadModel').removeAttribute('disabled')
+      document.querySelector('#uploadSubmit').classList.remove('bg-[#7260af]')
+      document.querySelector('#uploadSubmit').classList.add('bg-gray-400')
     }
   },
   async change(e) {
@@ -73,7 +75,8 @@ export const upload = {
     } else {
       files = e.target.files
     }
-    const msg = this.validate(files)
+    const msg = await this.validate(files)
+    console.log('[ msg ]-103', msg)
     document.querySelector('#uploadModel').value = ''
     if (msg) {
       ui.showToast(msg)
@@ -95,7 +98,7 @@ export const upload = {
     }
     ui.showLoading('模型上传中…')
     return new Promise((resolve, reject) => {
-      fetch('https://arttest.agischool.com.cn/api/art/oss/train/upload', {
+      fetch('/api/art/oss/train/upload', {
         method: 'POST',
         body: data,
       }).then((response) => {

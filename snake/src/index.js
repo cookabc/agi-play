@@ -1,7 +1,6 @@
 import './assets/styles/main.less'
 import { upload, snake, model, ui } from './assets/js'
 const itemsToCheck = ['背景音', '上', '下', '左', '右']
-// upload.addRemoveEvent()
 function onUploaded (result) {
   try {
     model.modelURL = result.model_url
@@ -37,42 +36,46 @@ function containsItems(data) {
 }
 
 function recognizerListen () {
-  const labelContainer = document.getElementById("label-container")
-  const classLabels = model.recognizer.wordLabels(); // get class labels
-  // for (let i = 0; i < classLabels.length; i++) {
-  //   labelContainer.appendChild(document.createElement("div"))
-  // }
-  // listen() takes two arguments:
-  // 1. A callback function that is invoked anytime a word is recognized.
-  // 2. A configuration object with adjustable fields
-  model.recognizer.listen(result => {
-    const scores = result.scores; // probability of prediction for each class
-    // render the probability scores per class
-    const maxScoreIndex = model.findMax(scores)
-    const label = classLabels[maxScoreIndex]
-    // 上
-    if (label === '上') {
-      snake.direction = 'top';
-    }
-    // 右
-    else if (label === '右') {
-      snake.direction = 'right';
-    }
-    // 下
-    else if (label === '下') {
-      snake.direction = 'bottom';
-    }
-    // 左
-    else if (label === '左') {
-      snake.direction = 'left';
-    }
-    labelContainer.innerHTML = '声音：' + label + '，当前方向：' + snake.direction
-  }, {
-    includeSpectrogram: true, // in case listen should return result.spectrogram
-    probabilityThreshold: 0.75,
-    invokeCallbackOnNoiseAndUnknown: true,
-    overlapFactor: 0.75 // probably want between 0.5 and 0.75. More info in README
-  });
+  try {
+    const labelContainer = document.getElementById("label-container")
+    const classLabels = model.recognizer.wordLabels(); // get class labels
+    // for (let i = 0; i < classLabels.length; i++) {
+    //   labelContainer.appendChild(document.createElement("div"))
+    // }
+    // listen() takes two arguments:
+    // 1. A callback function that is invoked anytime a word is recognized.
+    // 2. A configuration object with adjustable fields
+    model.recognizer.listen(result => {
+      const scores = result.scores; // probability of prediction for each class
+      // render the probability scores per class
+      const maxScoreIndex = model.findMax(scores)
+      const label = classLabels[maxScoreIndex]
+      // 上
+      if (label === '上') {
+        snake.direction = 'top';
+      }
+      // 右
+      else if (label === '右') {
+        snake.direction = 'right';
+      }
+      // 下
+      else if (label === '下') {
+        snake.direction = 'bottom';
+      }
+      // 左
+      else if (label === '左') {
+        snake.direction = 'left';
+      }
+      labelContainer.innerHTML = '声音：' + label + '，当前方向：' + snake.direction
+    }, {
+      includeSpectrogram: true, // in case listen should return result.spectrogram
+      probabilityThreshold: 0.75,
+      invokeCallbackOnNoiseAndUnknown: true,
+      overlapFactor: 0.75 // probably want between 0.5 and 0.75. More info in README
+    });
+  } catch (error) {
+    console.log('[ error ]-80', error)
+  }
 }
 snake.init()
 document.getElementById('start').addEventListener('click', () => {
