@@ -75,7 +75,7 @@ const sections: Section[] = [
                 description: '一起来了解下人脸打卡机是如何实现的吧！'
             },
             {
-                title: "NLP教学工具",
+                title: "NLP分析工具",
                 url: "/nlp",
                 imgUrl: "/static/images/nlp.png",
                 description: "AI是如何理解意图、识别情绪、回答问题的？这里可以找到答案。"
@@ -86,16 +86,16 @@ const sections: Section[] = [
         name: '外部链接',
         children: [
             {
-                title: '绘画小程序',
-                url: '',
-                imgUrl: '/static/images/ai_draw.png',
-                description: '用文字把想画的内容生成出来，支持水墨画、油画、插图、剪纸等各种风格。'
-            },
-            {
                 title: '聊天助手',
                 url: 'https://chat-agischool.vercel.app',
                 imgUrl: '/static/images/ai_chat.png',
                 description: 'GPT模型是如何帮助大家提高效率的？这里有好多场景等你来探索，快来试试吧！'
+            },
+            {
+                title: '绘画小程序',
+                url: '',
+                imgUrl: '/static/images/ai_draw.png',
+                description: '用文字把想画的内容生成出来，支持水墨画、油画、插图、剪纸等各种风格。'
             },
             {
                 title: 'AI训练场',
@@ -121,7 +121,7 @@ export default function Home() {
                         <div className="flex flex-wrap mx-[-1rem] gap-y-8">
                             {section.children.map((item, itemIdx) => (
                                 <div key={itemIdx}
-                                     className="2xl:w-1/5 xl:w-1/4 lg:w-1/3 md:w-1/2 sm:w-full w-full px-4">
+                                     className="2xl:w-1/5 xl:w-1/3 lg:w-1/3 md:w-1/2 sm:w-full w-full px-4">
                                     <a href={item.url} className="block h-full border-[1px] rounded-xl hover:shadow-xl"
                                        target="_blank">
                                         <div className="rounded-xl">
