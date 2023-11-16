@@ -74,6 +74,12 @@ const sections: Section[] = [
                 imgUrl: '/static/images/face_man.png',
                 description: '一起来了解下人脸打卡机是如何实现的吧！'
             },
+            {
+                title: "NLP教学工具",
+                url: "/nlp",
+                imgUrl: "/static/images/nlp.png",
+                description: "AI是如何理解意图、识别情绪、回答问题的？这里可以找到答案。"
+            },
         ]
     },
     {
