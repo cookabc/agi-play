@@ -54,7 +54,7 @@ export const upload = {
     for (let i = 0; i < this.fileList.length; i++) {
       const file = this.fileList[i]
       if (FILE_NAMES.includes(file.name)) {
-        html += `<li class='flex items-center py-1 border border-solid border-gray p-2 mb-1'><span class='text-lg font-bold'>${file.name}</span><button type='button' class='ml-auto bg-red-500 px-3 py-1 text-sm leading-5 rounded-full font-semibold text-white' data-name='${file.name}'>删除</button></li>`
+        html += `<li class='flex items-center py-1 border border-solid border-gray-400 p-2 mb-1 rounded-md'>${file.name}</span><button type='button' class='ml-auto bg-red-500 px-3 py-1 text-sm leading-5 rounded-full font-semibold text-white border-0 cursor-pointer' data-name='${file.name}'>删除</button></li>`
       }
     }
     this.fileListDom.innerHTML = html
@@ -95,7 +95,7 @@ export const upload = {
     }
     ui.showLoading('模型上传中…')
     return new Promise((resolve, reject) => {
-      fetch('https://arttest.agischool.com.cn/api/art/oss/train/upload', {
+      fetch('/api/art/oss/train/upload', {
         method: 'POST',
         body: data,
       }).then((response) => {
