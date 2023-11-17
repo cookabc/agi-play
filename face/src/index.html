@@ -43,13 +43,11 @@
 </noscript>
 <div class="app">
     <header class="bg-white h-[63px] px-5 flex items-center border-0 border-b border-solid border-b-[#7260af]">
-        <a href="/" class="mr-5 font-900 text-2xl flex items-center justify-center"><img src="./images/logo.svg"
-                                                                                         class="h-[60px]" alt=""/></a>
+        <a href="/" class="mr-5 font-900 text-2xl flex items-center justify-center">
+            <img src="./images/logo.svg" class="h-[60px]" alt=""/></a>
     </header>
     <div class="flex flex-wrap p-5 md:p-10">
-        <!-- <div class="w-[600px] p-10 flex-shrink-0"><img src="./images/face-recognition.jpg" class="w-full" alt="" /></div> -->
         <div class="upload-box w-full md:w-[440px]">
-            <!-- <h2 class="mb-2 text-2xl font-bold">上传模型文件</h2> -->
             <div role="alert"
                  class="alert alert-info mb-4 box-border m-0 py-[8px] px-[12px] text-[rgba(0,0,0,.88)] text-[14px] leading-5 list-none relative break-words rounded-[8px] bg-[#f0e8f7] border border-solid border-[#8e82bd]"
                  data-show="true">
@@ -91,7 +89,6 @@
                                 <div class="mt-2 text-sm leading-6 font-semibold text-[#7260af] hover:text-[#8e82bd]">
                                     点击上传图片
                                 </div>
-                                <!-- <input id="uploadImage" multiple name="uploadImage" onchange="handleInputChange(event, 'Label_1')" accept="image/*" type="file" class="sr-only" /> -->
                                 <input id="uploadImage" multiple name="uploadImage" accept="image/*" type="file"
                                        class="sr-only"/>
                             </label>
@@ -99,9 +96,6 @@
                     </div>
                 </div>
             </div>
-            <!-- <button type="button"
-              class="w-full rounded-md bg-transparent px-3 py-1.5 text-sm font-semibold leading-6 text-black border border-dashed border-gray-300 shadow-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              onclick="handleAddClass()">添加类别</button> -->
             <div class="flex py-2">
                 <button type="button" id="startBtn"
                         class="disabled w-full md:w-[100px] cursor-pointer pointer-events-auto rounded-md bg-[#7260af] px-3 py-2 text-base font-semibold leading-5 text-white ml-auto border-0">

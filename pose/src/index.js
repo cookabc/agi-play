@@ -23,11 +23,11 @@ import * as dat from "dat.gui";
 import Stats from "stats.js";
 import "babel-polyfill";
 
-import { drawKeypoints, drawPoint, drawSkeleton, isMobile } from "./utils/demoUtils";
-import { SVGUtils } from "./utils/svgUtils";
-import { PoseIllustration } from "./illustrationGen/illustration";
-import { Skeleton, facePartName2Index } from "./illustrationGen/skeleton";
-import { FileUtils } from "./utils/fileUtils";
+import {drawKeypoints, drawPoint, drawSkeleton, isMobile} from "./utils/demoUtils";
+import {SVGUtils} from "./utils/svgUtils";
+import {PoseIllustration} from "./illustrationGen/illustration";
+import {facePartName2Index, Skeleton} from "./illustrationGen/skeleton";
+import {FileUtils} from "./utils/fileUtils";
 
 import girlSVG from "./resources/illustration/girl.svg";
 import boySVG from "./resources/illustration/boy.svg";
@@ -63,80 +63,82 @@ let nmsRadius = 30.0;
 let mobile = false;
 const stats = new Stats();
 const avatarSvgs = {
-  girl: girlSVG,
-  boy: boySVG,
-  abstract: abstractSVG,
-  blathers: blathersSVG,
-  "tom-nook": tomNookSVG
+    girl: girlSVG,
+    boy: boySVG,
+    abstract: abstractSVG,
+    blathers: blathersSVG,
+    "tom-nook": tomNookSVG
 };
 let showDetectionDebug = true;
 let showIllustrationDebug = false;
 const avatarSvgsOptions = [
-  {
-    label: "女孩",
-    value: girlSVG
-  },
-  {
-    label: "男孩",
-    value: boySVG
-  },
-  {
-    label: "抽象派",
-    value: abstractSVG
-  },
-  {
-    label: "馆长",
-    value: blathersSVG
-  },
-  {
-    label: "汤姆·努克",
-    value: tomNookSVG
-  }
+    {
+        label: "女孩",
+        value: girlSVG
+    },
+    {
+        label: "男孩",
+        value: boySVG
+    },
+    {
+        label: "抽象派",
+        value: abstractSVG
+    },
+    {
+        label: "馆长",
+        value: blathersSVG
+    },
+    {
+        label: "汤姆·努克",
+        value: tomNookSVG
+    }
 ];
+
 function setupSelect() {
-  let html = "";
-  avatarSvgsOptions.forEach((item) => {
-    html += `<option value="${item.value}">${item.label}</option>`;
-  });
-  document.getElementById("avatarSelect").innerHTML = html;
-  document.getElementById("avatarSelect").addEventListener("change", function (event) {
-    parseSVG(event.target.value);
-  });
+    let html = "";
+    avatarSvgsOptions.forEach((item) => {
+        html += `<option value="${item.value}">${item.label}</option>`;
+    });
+    document.getElementById("avatarSelect").innerHTML = html;
+    document.getElementById("avatarSelect").addEventListener("change", function (event) {
+        parseSVG(event.target.value);
+    });
 }
+
 /**
  * Loads a the camera to be used in the demo
  */
 async function setupCamera() {
-  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-    throw new Error("Browser API navigator.mediaDevices.getUserMedia not available");
-  }
-
-  const video = document.getElementById("video");
-  video.width = videoWidth;
-  video.height = videoHeight;
-
-  const stream = await navigator.mediaDevices.getUserMedia({
-    audio: false,
-    video: {
-      facingMode: "user",
-      width: videoWidth,
-      height: videoHeight
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+        throw new Error("Browser API navigator.mediaDevices.getUserMedia not available");
     }
-  });
-  video.srcObject = stream;
 
-  return new Promise((resolve) => {
-    video.onloadedmetadata = () => {
-      resolve(video);
-    };
-  });
+    const video = document.getElementById("video");
+    video.width = videoWidth;
+    video.height = videoHeight;
+
+    const stream = await navigator.mediaDevices.getUserMedia({
+        audio: false,
+        video: {
+            facingMode: "user",
+            width: videoWidth,
+            height: videoHeight
+        }
+    });
+    video.srcObject = stream;
+
+    return new Promise((resolve) => {
+        video.onloadedmetadata = () => {
+            resolve(video);
+        };
+    });
 }
 
 async function loadVideo() {
-  const video = await setupCamera();
-  video.play();
+    const video = await setupCamera();
+    video.play();
 
-  return video;
+    return video;
 }
 
 const defaultPoseNetArchitecture = "MobileNetV1";
@@ -146,39 +148,39 @@ const defaultStride = 16;
 const defaultInputResolution = 200;
 
 const guiState = {
-  avatarSVG: Object.keys(avatarSvgs)[0],
-  debug: {
-    showDetectionDebug: true,
-    showIllustrationDebug: false
-  }
+    avatarSVG: Object.keys(avatarSvgs)[0],
+    debug: {
+        showDetectionDebug: true,
+        showIllustrationDebug: false
+    }
 };
 
 /**
  * Sets up dat.gui controller on the top-right of the window
  */
 function setupGui(cameras) {
-  if (cameras.length > 0) {
-    guiState.camera = cameras[0].deviceId;
-  }
+    if (cameras.length > 0) {
+        guiState.camera = cameras[0].deviceId;
+    }
 
-  const gui = new dat.GUI({ width: 300 });
+    const gui = new dat.GUI({width: 300});
 
-  let multi = gui.addFolder("Image");
-  gui.add(guiState, "avatarSVG", Object.keys(avatarSvgs)).onChange(() => parseSVG(avatarSvgs[guiState.avatarSVG]));
-  multi.open();
+    let multi = gui.addFolder("Image");
+    gui.add(guiState, "avatarSVG", Object.keys(avatarSvgs)).onChange(() => parseSVG(avatarSvgs[guiState.avatarSVG]));
+    multi.open();
 
-  let output = gui.addFolder("Debug control");
-  output.add(guiState.debug, "showDetectionDebug");
-  output.add(guiState.debug, "showIllustrationDebug");
-  output.open();
+    let output = gui.addFolder("Debug control");
+    output.add(guiState.debug, "showDetectionDebug");
+    output.add(guiState.debug, "showIllustrationDebug");
+    output.open();
 }
 
 /**
  * Sets up a frames per second panel on the top-left of the window
  */
 function setupFPS() {
-  stats.showPanel(0); // 0: fps, 1: ms, 2: mb, 3+: custom
-  document.getElementById("main").appendChild(stats.dom);
+    stats.showPanel(0); // 0: fps, 1: ms, 2: mb, 3+: custom
+    document.getElementById("main").appendChild(stats.dom);
 }
 
 /**
@@ -186,105 +188,105 @@ function setupFPS() {
  * happens. This function loops with a requestAnimationFrame method.
  */
 function detectPoseInRealTime(video) {
-  const canvas = document.getElementById("output");
-  const keypointCanvas = document.getElementById("keypoints");
-  const videoCtx = canvas.getContext("2d");
-  const keypointCtx = keypointCanvas.getContext("2d");
+    const canvas = document.getElementById("output");
+    const keypointCanvas = document.getElementById("keypoints");
+    const videoCtx = canvas.getContext("2d");
+    const keypointCtx = keypointCanvas.getContext("2d");
 
-  canvas.width = videoWidth;
-  canvas.height = videoHeight;
-  keypointCanvas.width = videoWidth;
-  keypointCanvas.height = videoHeight;
+    canvas.width = videoWidth;
+    canvas.height = videoHeight;
+    keypointCanvas.width = videoWidth;
+    keypointCanvas.height = videoHeight;
 
-  async function poseDetectionFrame() {
-    // Begin monitoring code for frames per second
-    stats.begin();
+    async function poseDetectionFrame() {
+        // Begin monitoring code for frames per second
+        stats.begin();
 
-    let poses = [];
-    videoCtx.clearRect(0, 0, videoWidth, videoHeight);
-    // Draw video
-    videoCtx.save();
-    videoCtx.scale(-1, 1);
-    videoCtx.translate(-videoWidth, 0);
-    videoCtx.drawImage(video, 0, 0, videoWidth, videoHeight);
-    videoCtx.restore();
+        let poses = [];
+        videoCtx.clearRect(0, 0, videoWidth, videoHeight);
+        // Draw video
+        videoCtx.save();
+        videoCtx.scale(-1, 1);
+        videoCtx.translate(-videoWidth, 0);
+        videoCtx.drawImage(video, 0, 0, videoWidth, videoHeight);
+        videoCtx.restore();
 
-    // Creates a tensor from an image
-    const input = tf.browser.fromPixels(canvas);
-    faceDetection = await facemesh.estimateFaces(input, false, false);
-    let all_poses = await posenet.estimatePoses(video, {
-      flipHorizontal: true,
-      decodingMethod: "multi-person",
-      maxDetections: 1,
-      scoreThreshold: minPartConfidence,
-      nmsRadius: nmsRadius
-    });
-
-    poses = poses.concat(all_poses);
-    input.dispose();
-
-    keypointCtx.clearRect(0, 0, videoWidth, videoHeight);
-    if (showDetectionDebug) {
-      poses.forEach(({ score, keypoints }) => {
-        if (score >= minPoseConfidence) {
-          drawKeypoints(keypoints, minPartConfidence, keypointCtx);
-          drawSkeleton(keypoints, minPartConfidence, keypointCtx);
-        }
-      });
-      faceDetection.forEach((face) => {
-        Object.values(facePartName2Index).forEach((index) => {
-          let p = face.scaledMesh[index];
-          drawPoint(keypointCtx, p[1], p[0], 2, "red");
+        // Creates a tensor from an image
+        const input = tf.browser.fromPixels(canvas);
+        faceDetection = await facemesh.estimateFaces(input, false, false);
+        let all_poses = await posenet.estimatePoses(video, {
+            flipHorizontal: true,
+            decodingMethod: "multi-person",
+            maxDetections: 1,
+            scoreThreshold: minPartConfidence,
+            nmsRadius: nmsRadius
         });
-      });
+
+        poses = poses.concat(all_poses);
+        input.dispose();
+
+        keypointCtx.clearRect(0, 0, videoWidth, videoHeight);
+        if (showDetectionDebug) {
+            poses.forEach(({score, keypoints}) => {
+                if (score >= minPoseConfidence) {
+                    drawKeypoints(keypoints, minPartConfidence, keypointCtx);
+                    drawSkeleton(keypoints, minPartConfidence, keypointCtx);
+                }
+            });
+            faceDetection.forEach((face) => {
+                Object.values(facePartName2Index).forEach((index) => {
+                    let p = face.scaledMesh[index];
+                    drawPoint(keypointCtx, p[1], p[0], 2, "red");
+                });
+            });
+        }
+
+        canvasScope.project.clear();
+
+        if (poses.length >= 1 && illustration) {
+            Skeleton.flipPose(poses[0]);
+
+            if (faceDetection && faceDetection.length > 0) {
+                let face = Skeleton.toFaceFrame(faceDetection[0]);
+                illustration.updateSkeleton(poses[0], face);
+            } else {
+                illustration.updateSkeleton(poses[0], null);
+            }
+            illustration.draw(canvasScope, videoWidth, videoHeight);
+
+            // if (guiState.debug.showIllustrationDebug) {
+            //   illustration.debugDraw(canvasScope);
+            // }
+            if (showIllustrationDebug) {
+                illustration.debugDraw(canvasScope);
+            }
+        }
+
+        canvasScope.project.activeLayer.scale(canvasWidth / videoWidth, canvasHeight / videoHeight, new canvasScope.Point(0, 0));
+
+        // End monitoring code for frames per second
+        stats.end();
+
+        requestAnimationFrame(poseDetectionFrame);
     }
 
-    canvasScope.project.clear();
-
-    if (poses.length >= 1 && illustration) {
-      Skeleton.flipPose(poses[0]);
-
-      if (faceDetection && faceDetection.length > 0) {
-        let face = Skeleton.toFaceFrame(faceDetection[0]);
-        illustration.updateSkeleton(poses[0], face);
-      } else {
-        illustration.updateSkeleton(poses[0], null);
-      }
-      illustration.draw(canvasScope, videoWidth, videoHeight);
-
-      // if (guiState.debug.showIllustrationDebug) {
-      //   illustration.debugDraw(canvasScope);
-      // }
-      if (showIllustrationDebug) {
-        illustration.debugDraw(canvasScope);
-      }
-    }
-
-    canvasScope.project.activeLayer.scale(canvasWidth / videoWidth, canvasHeight / videoHeight, new canvasScope.Point(0, 0));
-
-    // End monitoring code for frames per second
-    stats.end();
-
-    requestAnimationFrame(poseDetectionFrame);
-  }
-
-  poseDetectionFrame();
+    poseDetectionFrame();
 }
 
 function setupCanvas() {
-  mobile = isMobile();
-  if (mobile) {
-    canvasWidth = Math.min(window.innerWidth, window.innerHeight);
-    canvasHeight = canvasWidth;
-    videoWidth *= 0.7;
-    videoHeight *= 0.7;
-  }
+    mobile = isMobile();
+    if (mobile) {
+        canvasWidth = Math.min(window.innerWidth, window.innerHeight);
+        canvasHeight = canvasWidth;
+        videoWidth *= 0.7;
+        videoHeight *= 0.7;
+    }
 
-  canvasScope = paper;
-  let canvas = document.querySelector(".illustration-canvas");
-  canvas.width = canvasWidth;
-  canvas.height = canvasHeight;
-  canvasScope.setup(canvas);
+    canvasScope = paper;
+    let canvas = document.querySelector(".illustration-canvas");
+    canvas.width = canvasWidth;
+    canvas.height = canvasHeight;
+    canvasScope.setup(canvas);
 }
 
 /**
@@ -292,55 +294,58 @@ function setupCanvas() {
  * available camera devices, and setting off the detectPoseInRealTime function.
  */
 async function bindPage() {
-  setupEvent();
-  setupSelect();
-  setupCanvas();
-  document.querySelector('#loadingStatus').innerText = '正在加载 PoseNet 模型'
-  posenet = await posenet_module.load({
-    architecture: defaultPoseNetArchitecture,
-    outputStride: defaultStride,
-    inputResolution: defaultInputResolution,
-    multiplier: defaultMultiplier,
-    quantBytes: defaultQuantBytes
-  });
-  document.querySelector('#loadingStatus').innerText = '正在加载 FaceMesh 模型'
-  facemesh = await facemesh_module.load();
-  document.querySelector('#loadingStatus').innerText = '正在加载头像文件'
-  let t0 = new Date();
-  await parseSVG(avatarSvgsOptions[0].value)
-  document.querySelector('#loadingStatus').innerText = '正在设置相机'
-  try {
-    video = await loadVideo();
-  } catch (e) {
-    let info = document.getElementById("info");
-    info.textContent = "this device type is not supported yet, " + "or this browser does not support video capture: " + e.toString();
-    info.style.display = "block";
-    throw e;
-  }
+    setupEvent();
+    setupSelect();
+    setupCanvas();
+    document.querySelector('#loadingStatus').innerText = '正在加载 PoseNet 模型'
+    posenet = await posenet_module.load({
+        architecture: defaultPoseNetArchitecture,
+        outputStride: defaultStride,
+        inputResolution: defaultInputResolution,
+        multiplier: defaultMultiplier,
+        quantBytes: defaultQuantBytes
+    });
+    document.querySelector('#loadingStatus').innerText = '正在加载 FaceMesh 模型'
+    facemesh = await facemesh_module.load();
+    document.querySelector('#loadingStatus').innerText = '正在加载头像文件'
+    let t0 = new Date();
+    await parseSVG(avatarSvgsOptions[0].value)
+    document.querySelector('#loadingStatus').innerText = '正在设置相机'
+    try {
+        video = await loadVideo();
+    } catch (e) {
+        let info = document.getElementById("info");
+        info.textContent = "this device type is not supported yet, " + "or this browser does not support video capture: " + e.toString();
+        info.style.display = "block";
+        throw e;
+    }
 
-  // setupGui([], posenet);
-  // setupFPS();
-  document.querySelector('#loadingStatus').innerText = ''
-  document.querySelector('#loading').classList.add('hidden')
-  detectPoseInRealTime(video, posenet);
+    // setupGui([], posenet);
+    // setupFPS();
+    document.querySelector('#loadingStatus').innerText = ''
+    document.querySelector('#loading').classList.add('hidden')
+    detectPoseInRealTime(video, posenet);
 }
 
 navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 FileUtils.setDragDropHandler((result) => {
-  parseSVG(result);
+    parseSVG(result);
 });
+
 function setupEvent() {
-  document.querySelector("#c1").addEventListener("change", (e) => {
-    showDetectionDebug = e.target.checked;
-  });
-  document.querySelector("#c2").addEventListener("change", (e) => {
-    showIllustrationDebug = e.target.checked;
-  });
+    document.querySelector("#c1").addEventListener("change", (e) => {
+        showDetectionDebug = e.target.checked;
+    });
+    document.querySelector("#c2").addEventListener("change", (e) => {
+        showIllustrationDebug = e.target.checked;
+    });
 }
+
 async function parseSVG(target) {
-  let svgScope = await SVGUtils.importSVG(target /* SVG string or file path */);
-  let skeleton = new Skeleton(svgScope);
-  illustration = new PoseIllustration(canvasScope);
-  illustration.bindSkeleton(skeleton, svgScope);
+    let svgScope = await SVGUtils.importSVG(target /* SVG string or file path */);
+    let skeleton = new Skeleton(svgScope);
+    illustration = new PoseIllustration(canvasScope);
+    illustration.bindSkeleton(skeleton, svgScope);
 }
+
 bindPage();

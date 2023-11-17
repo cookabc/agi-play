@@ -29,8 +29,8 @@ export class MathUtils {
     }
 
     static smoothStep(v, min, max) {
-        var x = Math.max(0, Math.min(1, (v-min)/(max-min)));
-        return x*x*(3 - 2*x);
+        var x = Math.max(0, Math.min(1, (v - min) / (max - min)));
+        return x * x * (3 - 2 * x);
     }
 
     // Generate a transform function of p in the coordinate system defined by p0 and p1.
@@ -82,9 +82,9 @@ export class MathUtils {
 
     static gaussian(mean, variance) {
         var u = 0, v = 0;
-        while(u === 0) u = Math.random(); //Converting [0,1) to (0,1)
-        while(v === 0) v = Math.random();
-        let value = Math.sqrt( -2.0 * Math.log( u ) ) * Math.cos( 2.0 * Math.PI * v );
+        while (u === 0) u = Math.random(); //Converting [0,1) to (0,1)
+        while (v === 0) v = Math.random();
+        let value = Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
         return value * variance + mean;
     }
 
@@ -114,9 +114,9 @@ export class MathUtils {
         return selected;
     }
 
-    static isLeft(p0, p1, p){
-        return ((p1.x - p0.x)*(p.y - p0.y) - (p1.y - p0.y)*(p.x - p0.x)) > 0;
-   }
+    static isLeft(p0, p1, p) {
+        return ((p1.x - p0.x) * (p.y - p0.y) - (p1.y - p0.y) * (p.x - p0.x)) > 0;
+    }
 
     static packCircles(center, radius, seedCount, maxR, minR, maxIter = 10) {
         let circles = [];
@@ -172,22 +172,30 @@ class KeySpline {
         if (this.mX1 == this.mY1 && this.mX2 == this.mY2) return aX; // linear
         return this.CalcBezier(this.GetTForX(aX), this.mY1, this.mY2);
     }
-    
-    A( aA1,  aA2)  { return 1.0 - 3.0 * aA2 + 3.0 * aA1; }
-    B( aA1,  aA2)  { return 3.0 * aA2 - 6.0 * aA1; }
-    C( aA1)  { return 3.0 * aA1; }
-    
+
+    A(aA1, aA2) {
+        return 1.0 - 3.0 * aA2 + 3.0 * aA1;
+    }
+
+    B(aA1, aA2) {
+        return 3.0 * aA2 - 6.0 * aA1;
+    }
+
+    C(aA1) {
+        return 3.0 * aA1;
+    }
+
     // Returns x(t) given t, x1, and x2, or y(t) given t, y1, and y2.
-    CalcBezier( aT,  aA1,  aA2)  {
+    CalcBezier(aT, aA1, aA2) {
         return ((this.A(aA1, aA2) * aT + this.B(aA1, aA2)) * aT + this.C(aA1)) * aT;
     }
-    
+
     // Returns dx/dt given t, x1, and x2, or dy/dt given t, y1, and y2.
-    GetSlope( aT,  aA1,  aA2)  {
+    GetSlope(aT, aA1, aA2) {
         return 3.0 * this.A(aA1, aA2) * aT * aT + 2.0 * this.B(aA1, aA2) * aT + this.C(aA1);
     }
-    
-    GetTForX( aX)  {
+
+    GetTForX(aX) {
         // Newton raphson iteration
         let aGuessT = aX;
         for (let i = 0; i < 4; ++i) {

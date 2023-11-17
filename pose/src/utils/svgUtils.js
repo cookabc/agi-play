@@ -17,6 +17,7 @@
 
 // import * as paper from 'paper';
 import paper from "paper"
+
 export class SVGUtils {
     static importSVG(file) {
         const Paper = paper.PaperScope ? paper : paper.default
@@ -56,7 +57,8 @@ export class SVGUtils {
             return path.clone();
         }
         let to = [];
-        let back = [];;
+        let back = [];
+        ;
         let segCount = Math.max(pathLen / 3, 1.0);
         for (let i = 0; i < segCount; i++) {
             let perc = i / (segCount - 1);
@@ -87,12 +89,12 @@ export class SVGUtils {
     static isGroup(item) {
         return item.constructor === item.project._scope.Group;
     }
-    
+
     static findFirstItemWithPrefix(root, prefix) {
-        let items = root.getItems({ recursive: true });
+        let items = root.getItems({recursive: true});
         for (let i = 0; i < items.length; i++) {
             if (items[i].name && items[i].name.startsWith(prefix)) {
-            return items[i];
+                return items[i];
             }
         }
         return null;

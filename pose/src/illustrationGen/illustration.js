@@ -15,10 +15,10 @@
  * =============================================================================
  */
 
-import { Bone, allPartNames, Skeleton } from './skeleton';
-import { MathUtils } from '../utils/mathUtils';
-import { SVGUtils } from '../utils/svgUtils';
-import { ColorUtils } from '../utils/colorUtils';
+import {allPartNames, Bone, Skeleton} from './skeleton';
+import {MathUtils} from '../utils/mathUtils';
+import {SVGUtils} from '../utils/svgUtils';
+import {ColorUtils} from '../utils/colorUtils';
 
 const allPartNamesMap = {};
 allPartNames.forEach(name => allPartNamesMap[name] = 1);
@@ -83,7 +83,7 @@ export class PoseIllustration {
                 closed: skinnedPath.closed,
             });
             skinnedPath.segments.forEach(seg => {
-                path.addSegment(seg.point.currentPosition, 
+                path.addSegment(seg.point.currentPosition,
                     seg.handleIn ? seg.handleIn.currentPosition.subtract(seg.point.currentPosition) : null,
                     seg.handleOut ? seg.handleOut.currentPosition.subtract(seg.point.currentPosition) : null);
             });
@@ -121,12 +121,12 @@ export class PoseIllustration {
                 let color = new scope.Color(0);
                 Object.keys(seg.point.skinning).forEach((boneName) => {
                     let bt = seg.point.skinning[boneName];
-                    ColorUtils.addRGB(color, 
-                        bt.weight * bt.bone.boneColor.red, 
-                        bt.weight * bt.bone.boneColor.green, 
+                    ColorUtils.addRGB(color,
+                        bt.weight * bt.bone.boneColor.red,
+                        bt.weight * bt.bone.boneColor.green,
                         bt.weight * bt.bone.boneColor.blue);
-                        let anchor = bt.bone.kp0.currentPosition.multiply(1 - bt.transform.anchorPerc).add(bt.bone.kp1.currentPosition.multiply(bt.transform.anchorPerc));
-                        drawLine(anchor, seg.point.currentPosition, {strokeColor: 'blue', strokeWidth: bt.weight});
+                    let anchor = bt.bone.kp0.currentPosition.multiply(1 - bt.transform.anchorPerc).add(bt.bone.kp1.currentPosition.multiply(bt.transform.anchorPerc));
+                    drawLine(anchor, seg.point.currentPosition, {strokeColor: 'blue', strokeWidth: bt.weight});
                 });
 
                 drawCircle(seg.point.currentPosition, {fillColor: color});
@@ -143,7 +143,7 @@ export class PoseIllustration {
     }
 
     bindSkeleton(skeleton, skeletonScope) {
-        let items = skeletonScope.project.getItems({ recursive: true });
+        let items = skeletonScope.project.getItems({recursive: true});
         items = items.filter(item => item.parent && item.parent.name && item.parent.name.startsWith('illustration'));
         this.skeleton = skeleton;
         this.skinnedPaths = [];
@@ -196,7 +196,7 @@ export class PoseIllustration {
             kp1.transformFunc = MathUtils.getTransformFunc(parentBone.kp1.position, nosePos, kp1.position);
             secondaryBone.parent = parentBone;
             secondaryBones.push(secondaryBone);
-        });        
+        });
         skeleton.secondaryBones = skeleton.secondaryBones.concat(secondaryBones);
         paths.forEach(path => {
             this.bindPathToBones(path, secondaryBones);
