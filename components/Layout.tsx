@@ -1,6 +1,6 @@
-import type {Metadata} from 'next'
+'use client'
 
-import './globals.css'
+import type {Metadata} from 'next'
 import {Inter} from 'next/font/google'
 import React from "react";
 import Header from "@/components/Header";
@@ -21,13 +21,11 @@ const cx = (...classNames: string[]) => classNames.filter(Boolean).join(" ");
 
 export default function RootLayout({children}: { children: React.ReactNode }) {
     return (
-        <html lang="en">
-        <body
+        <div
             className={cx(inter.variable, "font-mr bg-light dark:bg-dark") + ' flex flex-col h-screen justify-between'}>
-        <Header/>
-        {children}
-        <Footer/>
-        </body>
-        </html>
+            <Header/>
+            {children}
+            <Footer/>
+        </div>
     )
 }
