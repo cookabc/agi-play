@@ -19,19 +19,19 @@ const sections: Section[] = [
             {
                 title: '图像分类模型训练',
                 url: '/train/image',
-                imgUrl: '/static/images/image_train_fv.png',
+                imgUrl: '/static/images/train_image_fv.png',
                 description: '上传图片文件或摄像头拍摄照片，进行图像分类模型训练。'
             },
             {
                 title: '声音分类模型训练',
                 url: '/train/image',
-                imgUrl: '/static/images/audio_train_fv.png',
+                imgUrl: '/static/images/train_audio_fv.png',
                 description: '上传音频文件或麦克风录制音频，进行音频分类模型训练。'
             },
             {
                 title: '姿势分类模型训练',
                 url: '/train/pose',
-                imgUrl: '/static/images/pose_train_fv.png',
+                imgUrl: '/static/images/train_pose_fv.png',
                 description: '上传图片文件或摄像头拍摄照片，进行姿势模型训练。'
             }
         ]
@@ -42,19 +42,19 @@ const sections: Section[] = [
             {
                 title: '图像分类游戏-吃豆人',
                 url: '/pacman',
-                imgUrl: '/static/images/pacman_game.png',
+                imgUrl: '/static/images/game_pacman.png',
                 description: '爸爸小时候用键盘和手柄玩吃豆人（Pacman）游戏，我现在用手势指挥我的吃豆人。'
             },
             {
                 title: '声音分类游戏-贪食蛇',
                 url: '/snake',
-                imgUrl: '/static/images/snake_game.png',
+                imgUrl: '/static/images/game_snake.png',
                 description: '用手势指挥已经不酷了，让我用声音来控制贪食蛇吧，好Cool!'
             },
             {
                 title: '声音分类游戏-寻找布谷鸟',
                 url: '/cuckoo',
-                imgUrl: '/static/images/cuckoo.jpg',
+                imgUrl: '/static/images/game_cuckoo.jpg',
                 description: '亚马逊森林中，一种布谷鸟就要灭绝了，我们来帮助科学家找到布谷鸟，保护好它们吧。'
             },
         ]
@@ -65,19 +65,25 @@ const sections: Section[] = [
             {
                 title: '人体检测工具',
                 url: '/pose',
-                imgUrl: '/static/images/pose_man.png',
+                imgUrl: '/static/images/tool_pose.png',
                 description: 'AI是如何识别出我的动作的？看一下就明白了。'
             },
             {
                 title: '人脸检测工具',
                 url: '/face',
-                imgUrl: '/static/images/face_man.png',
+                imgUrl: '/static/images/tool_face.png',
                 description: '一起来了解下人脸打卡机是如何实现的吧！'
             },
             {
                 title: "NLP分析工具",
                 url: "/nlp",
-                imgUrl: "/static/images/nlp.png",
+                imgUrl: "/static/images/tool_nlp.png",
+                description: "AI是如何理解意图、识别情绪、回答问题的？这里可以找到答案。"
+            },
+            {
+                title: "OpenAI工具",
+                url: "/openai",
+                imgUrl: "/static/images/tool_openai.png",
                 description: "AI是如何理解意图、识别情绪、回答问题的？这里可以找到答案。"
             },
         ]
@@ -121,14 +127,14 @@ export default function Home() {
                         <div className="flex flex-wrap mx-[-1rem] gap-y-8">
                             {section.children.map((item, itemIdx) => (
                                 <div key={itemIdx}
-                                     className="2xl:w-1/3 xl:w-1/3 lg:w-1/3 md:w-1/2 sm:w-full w-full px-4">
+                                     className="2xl:w-1/4 xl:w-1/4 lg:w-1/3 md:w-1/2 sm:w-full w-full px-4">
                                     <a href={item.url}
                                        className="block h-full border-[1px] rounded-xl hover:shadow-xl"
                                        target="_blank">
                                         <div className="rounded-xl">
                                             <div className="w-full h-[200px] relative">
                                                 <Image
-                                                    src={`${item.imgUrl}?timestamp=${Date.now()}_${itemIdx}`}
+                                                    src={item.imgUrl}
                                                     alt={item.title}
                                                     className="object-cover rounded-ss-xl rounded-se-xl"
                                                     fill
