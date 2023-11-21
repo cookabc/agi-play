@@ -4,7 +4,9 @@
   "description": "",
   "scripts": {
     "dev": "parcel ./src/index.html --open",
-    "build": "rimraf ../public/nlp && rimraf dist && parcel build --no-scope-hoist --no-source-maps ./src/index.html --public-url /nlp && cp -r dist/ ../public/nlp/"
+    "clean": "rimraf ../public/nlp && rimraf .parcel-cache dist",
+    "build": "parcel build --no-scope-hoist --no-source-maps ./src/index.html --public-url /nlp",
+    "deploy": "npm run clean && npm run build && cp -r dist/ ../public/nlp/"
   },
   "author": "",
   "license": "ISC",

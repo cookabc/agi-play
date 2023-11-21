@@ -4,6 +4,12 @@
   "description": "",
   "license": "Apache-2.0",
   "private": true,
+  "scripts": {
+    "dev": "parcel ./src/index.html --open",
+    "clean": "rimraf ../public/pose && rimraf .parcel-cache dist",
+    "build": "parcel build --no-scope-hoist --no-source-maps ./src/index.html --public-url /pose",
+    "deploy": "npm run clean && npm run build && cp -r dist/ ../public/pose/"
+  },
   "dependencies": {
     "@tensorflow-models/facemesh": "^0.0.1",
     "@tensorflow-models/posenet": "^2.2.1",
@@ -16,10 +22,6 @@
     "lu2": "^2023.9.15",
     "paper": "^0.12.17",
     "stats.js": "^0.17.0"
-  },
-  "scripts": {
-    "dev": "parcel ./src/index.html --open",
-    "build": "rimraf ../public/pose && rimraf dist && parcel build --no-scope-hoist --no-source-maps ./src/index.html --public-url /pose && cp -r dist/ ../public/pose/"
   },
   "devDependencies": {
     "@parcel/config-default": "^2.8.0",
