@@ -80,28 +80,22 @@ const sections: Section[] = [
                 imgUrl: "/static/images/tool_nlp.png",
                 description: "AI是如何理解意图、识别情绪、回答问题的？这里可以找到答案。"
             },
-            {
-                title: "OpenAI工具",
-                url: "/openai",
-                imgUrl: "/static/images/tool_openai.png",
-                description: "AI是如何理解意图、识别情绪、回答问题的？这里可以找到答案。"
-            },
         ]
     },
     {
         name: '外部链接',
         children: [
             {
+                title: "OpenAI工具",
+                url: "/openai",
+                imgUrl: "/static/images/ai_openai.png",
+                description: "AI是如何理解意图、识别情绪、回答问题的？这里可以找到答案。"
+            },
+            {
                 title: '聊天助手',
                 url: 'https://chat-agischool.vercel.app',
                 imgUrl: '/static/images/ai_chat.png',
                 description: 'GPT模型是如何帮助大家提高效率的？这里有好多场景等你来探索，快来试试吧！'
-            },
-            {
-                title: '绘画小程序',
-                url: '',
-                imgUrl: '/static/images/ai_draw.png',
-                description: '用文字把想画的内容生成出来，支持水墨画、油画、插图、剪纸等各种风格。'
             },
             {
                 title: 'AI训练场',
