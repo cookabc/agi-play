@@ -1,5 +1,6 @@
 @import url(//fonts.googleapis.com/css?family=Google+Sans:400,500,600,700);
 @import url(//fonts.googleapis.com/css?family=Roboto+Mono:400,500);
+
 * {
     -webkit-user-select: none;
     -khtml-user-select: none;
@@ -13,8 +14,8 @@
     font-family: 'BoingSemiBold';
     src: url('./fonts/boing/Boing_SemiboldWEB.eot');
     src: url('./fonts/boing/Boing_SemiboldWEB.eot?#iefix') format('embedded-opentype'),
-            url('./fonts/boing/Boing_SemiboldWEB.woff2') format('woff2'),
-            url('./fonts/boing/Boing_SemiboldWEB.woff') format('woff');
+    url('./fonts/boing/Boing_SemiboldWEB.woff2') format('woff2'),
+    url('./fonts/boing/Boing_SemiboldWEB.woff') format('woff');
 }
 
 body {
@@ -35,7 +36,7 @@ body {
     font-smooth: always;
 }
 
-p{
+p {
     font-size: 14px;
 }
 
@@ -86,7 +87,7 @@ p{
 
 /*
  * Unsupported Fallback Styles
- * 
+ *
  * The check is independent of the codebase,
  * therefore the styles must be added as css.
  */
@@ -116,7 +117,7 @@ a, a:link, a:visited {
     margin-bottom: 2em;
 }
 
-@media only screen and (max-width: 840px) {                
+@media only screen and (max-width: 840px) {
     .unsupported-msg .mobile-msg {
         display: inline;
     }
