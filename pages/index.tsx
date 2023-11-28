@@ -75,6 +75,12 @@ const sections: Section[] = [
                 description: '一起来了解下人脸打卡机是如何实现的吧！'
             },
             {
+                title: '波形采样',
+                url: '/wave',
+                imgUrl: '/static/images/tool_wave.png',
+                description: '一起来了解下人脸打卡机是如何实现的吧！'
+            },
+            {
                 title: "NLP分析工具",
                 url: "/nlp",
                 imgUrl: "/static/images/tool_nlp.png",
