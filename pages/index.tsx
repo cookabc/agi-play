@@ -40,19 +40,19 @@ const sections: Section[] = [
         name: '游戏',
         children: [
             {
-                title: '图像分类游戏-吃豆人',
+                title: '图像分类-吃豆人',
                 url: '/pacman',
                 imgUrl: '/static/images/game_pacman.png',
                 description: '爸爸小时候用键盘和手柄玩吃豆人（Pacman）游戏，我现在用手势指挥我的吃豆人。'
             },
             {
-                title: '声音分类游戏-贪食蛇',
+                title: '声音分类-贪食蛇',
                 url: '/snake',
                 imgUrl: '/static/images/game_snake.png',
                 description: '用手势指挥已经不酷了，让我用声音来控制贪食蛇吧，好Cool!'
             },
             {
-                title: '声音分类游戏-寻找布谷鸟',
+                title: '声音分类-寻找布谷鸟',
                 url: '/cuckoo',
                 imgUrl: '/static/images/game_cuckoo.jpg',
                 description: '亚马逊森林中，一种布谷鸟就要灭绝了，我们来帮助科学家找到布谷鸟，保护好它们吧。'
@@ -63,13 +63,13 @@ const sections: Section[] = [
         name: '工具',
         children: [
             {
-                title: '人体检测工具',
+                title: '人体检测',
                 url: '/pose',
                 imgUrl: '/static/images/tool_pose.png',
                 description: 'AI是如何识别出我的动作的？看一下就明白了。'
             },
             {
-                title: '人脸检测工具',
+                title: '人脸检测',
                 url: '/face',
                 imgUrl: '/static/images/tool_face.png',
                 description: '一起来了解下人脸打卡机是如何实现的吧！'
@@ -81,7 +81,7 @@ const sections: Section[] = [
                 description: '一起来了解下人脸打卡机是如何实现的吧！'
             },
             {
-                title: "NLP分析工具",
+                title: "NLP分析",
                 url: "/nlp",
                 imgUrl: "/static/images/tool_nlp.png",
                 description: "AI是如何理解意图、识别情绪、回答问题的？这里可以找到答案。"
