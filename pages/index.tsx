@@ -86,6 +86,12 @@ const sections: Section[] = [
                 imgUrl: '/static/images/game_cuckoo.jpg',
                 description: '亚马逊森林中，一种布谷鸟就要灭绝了，我们来帮助科学家找到布谷鸟，保护好它们吧。'
             },
+            {
+                title: '强化学习-井字棋',
+                url: '/tic-tac-toe',
+                imgUrl: '/static/images/game_tic-tac-toe.png',
+                description: '让我们一同来解密AI是如何学会下棋的吧！'
+            },
         ]
     },
     {
