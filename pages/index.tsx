@@ -37,6 +37,35 @@ const sections: Section[] = [
         ]
     },
     {
+        name: '工具',
+        children: [
+            {
+                title: '人体检测',
+                url: '/pose',
+                imgUrl: '/static/images/tool_pose.png',
+                description: 'AI是如何识别出我的动作的？看一下就明白了。'
+            },
+            {
+                title: '人脸检测',
+                url: '/face',
+                imgUrl: '/static/images/tool_face.png',
+                description: '一起来了解下人脸打卡机是如何实现的吧！'
+            },
+            {
+                title: '波形采样',
+                url: '/wave',
+                imgUrl: '/static/images/tool_wave.png',
+                description: '声音是可以被看见的？音频、音量是什么含义？看看不同乐器的音色吧！'
+            },
+            {
+                title: "NLP分析",
+                url: "/nlp",
+                imgUrl: "/static/images/tool_nlp.png",
+                description: "AI是如何理解意图、识别情绪、回答问题的？这里可以找到答案。"
+            },
+        ]
+    },
+    {
         name: '游戏',
         children: [
             {
@@ -56,35 +85,6 @@ const sections: Section[] = [
                 url: '/cuckoo',
                 imgUrl: '/static/images/game_cuckoo.jpg',
                 description: '亚马逊森林中，一种布谷鸟就要灭绝了，我们来帮助科学家找到布谷鸟，保护好它们吧。'
-            },
-        ]
-    },
-    {
-        name: '工具',
-        children: [
-            {
-                title: '人体检测',
-                url: '/pose',
-                imgUrl: '/static/images/tool_pose.png',
-                description: 'AI是如何识别出我的动作的？看一下就明白了。'
-            },
-            {
-                title: '人脸检测',
-                url: '/face',
-                imgUrl: '/static/images/tool_face.png',
-                description: '一起来了解下人脸打卡机是如何实现的吧！'
-            },
-            {
-                title: '波形采样',
-                url: '/wave',
-                imgUrl: '/static/images/tool_wave.png',
-                description: '一起来了解下人脸打卡机是如何实现的吧！'
-            },
-            {
-                title: "NLP分析",
-                url: "/nlp",
-                imgUrl: "/static/images/tool_nlp.png",
-                description: "AI是如何理解意图、识别情绪、回答问题的？这里可以找到答案。"
             },
         ]
     },
