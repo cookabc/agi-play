@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "parcel ./src/index.html --open",
-    "clean": "rimraf ../public/snake && rimraf .parcel-cache dist",
+    "clean": "rimraf ../../public/snake && rimraf .parcel-cache dist",
     "build": "parcel build --no-scope-hoist --no-source-maps ./src/index.html --public-url /snake",
-    "deploy": "npm run clean && npm run build && cp -r dist/ ../public/snake/"
+    "deploy": "npm run clean && npm run build && cp -r dist/ ../../public/snake/"
   },
   "devDependencies": {
     "@parcel/transformer-less": "^2.10.0",
