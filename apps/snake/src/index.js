@@ -42,9 +42,6 @@ function recognizerListen() {
     try {
         const labelContainer = document.getElementById("label-container")
         const classLabels = model.recognizer.wordLabels(); // get class labels
-        // for (let i = 0; i < classLabels.length; i++) {
-        //   labelContainer.appendChild(document.createElement("div"))
-        // }
         // listen() takes two arguments:
         // 1. A callback function that is invoked anytime a word is recognized.
         // 2. A configuration object with adjustable fields
@@ -103,16 +100,6 @@ document.getElementById('dragUpload').addEventListener('drop', (e) => {
     e.preventDefault()
     upload.change(e)
 })
-// (result) => {
-//   model.modelURL = result.model_url
-//   model.metadataURL = result.metadata_url
-//   ui.showLoading('加载模型中…')
-//   model.init(() => {
-//     ui.hideLoading()
-//     document.getElementById('gameArea').style.display = 'block'
-//     snake.init()
-//   })
-// }
 document.addEventListener('keydown', (ev) => {
     if (snake.timer === null) return;
 
