@@ -1,11 +1,11 @@
 {
   "name": "wave",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "scripts": {
     "dev": "parcel ./src/index.html --open",
-    "clean": "rimraf ../public/wave && rimraf .parcel-cache dist",
+    "clean": "rimraf ../../public/wave && rimraf .parcel-cache dist",
     "build": "parcel build --no-scope-hoist --no-source-maps ./src/index.html --public-url /wave",
-    "deploy": "npm run clean && npm run build && cp -r dist/ ../public/wave/"
+    "deploy": "npm run clean && npm run build && cp -r dist/ ../../public/wave/"
   },
   "devDependencies": {
     "@parcel/transformer-less": "^2.10.0",
