@@ -1,9 +1,5 @@
 lockfileVersion: '6.0'
 
-settings:
-  autoInstallPeers: true
-  excludeLinksFromLockfile: false
-
 dependencies:
   '@tensorflow-models/speech-commands':
     specifier: ^0.4.0
@@ -17,7 +13,7 @@ devDependencies:
     specifier: ^2.10.0
     version: 2.10.3(@parcel/core@2.10.3)
   buffer:
-    specifier: ^6.0.3
+    specifier: ^5.5.0||^6.0.0
     version: 6.0.3
   parcel:
     specifier: ^2.10.0
@@ -35,7 +31,7 @@ devDependencies:
     specifier: ^3.3.5
     version: 3.3.5
   util:
-    specifier: ^0.12.5
+    specifier: ^0.12.3
     version: 0.12.5
 
 packages:
@@ -3057,3 +3053,7 @@ packages:
     resolution: {integrity: sha512-8aAvwVUSHpfEqTQ4w/KMlf3HcRdt50E5ODIQJBw1fQ5RL34xabzxtUlzTXVqc4rkZsPbvrXKWnABCD7kWSmocA==}
     engines: {node: '>= 14'}
     dev: true
+
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
