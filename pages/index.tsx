@@ -57,12 +57,6 @@ const sections: Section[] = [
                 imgUrl: '/static/images/tool_wave.png',
                 description: '声音是可以被看见的？音频、音量是什么含义？看看不同乐器的音色吧！'
             },
-            {
-                title: "NLP分析",
-                url: "/nlp",
-                imgUrl: "/static/images/tool_nlp.png",
-                description: "AI是如何理解意图、识别情绪、回答问题的？这里可以找到答案。"
-            },
         ]
     },
     {
