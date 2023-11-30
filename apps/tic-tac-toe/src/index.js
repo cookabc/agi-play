@@ -222,22 +222,15 @@ class Game extends React.Component {
         const {winner, line} = calculateWinner(current.squares);
 
         const moves = history.map((step, move) => {
-            const desc = move ? `第${move}步` : "清空棋盘";
-            return (
-                <li key={move}>
-                    <a onClick={() => this.jumpTo(move)} className="btn effect01">
-                        <span>{desc}</span>
-                    </a>
-                </li>
+            const desc = move ? `${move}步` : null;
+            return (desc &&
+                <a key={move} onClick={() => this.jumpTo(move)} className="btn effect01">
+                    <span>{desc}</span>
+                </a>
             );
         });
 
-        let status;
-        if (winner) {
-            status = "获胜者：" + winner;
-        } else {
-            status = "";
-        }
+        const status = winner ? "获胜者：" + winner : "获胜者：" + "无";
 
         return (
             <>
@@ -245,19 +238,57 @@ class Game extends React.Component {
                     <h3 className="m-0 mb-4">
                         AI已从<strong>{this.state.games.length}</strong>{" "}场比赛中吸取经验教训
                     </h3>
-                    <div>
-                        {status}
+                    <div className="my-1">
+                        {(
+                            <a
+                                onClick={() => this.jumpTo(0)}
+                                className="block mx-auto btn effect01 animate__animated animate__fadeIn bigx"
+                            >
+                                <span>清空棋盘</span>
+                            </a>
+                        )}
+                    </div>
+                    <div className="my-1">
                         {!winner && (
                             <a
                                 onClick={() => this.makeAIMove()}
-                                className="btn effect01"
+                                className="block mx-auto btn effect01 animate__animated animate__fadeIn bigx"
                                 target="_blank"
                             >
                                 <span>让AI走</span>
                             </a>
                         )}
                     </div>
-                    <ol className="list-none pl-5">{moves}</ol>
+                    <ol className="list-none list-container">{moves}</ol>
+                    <div className="my-1">
+                        {(
+                            <span className="block mx-auto btn effect01 animate__animated animate__fadeIn bigx">
+                                {status}
+                            </span>
+                        )}
+                    </div>
+                    <div className="my-1">
+                        {(
+                            <a
+                                href="#training-modal"
+                                onClick={() => this.trainUp("X")}
+                                className="block mx-auto btn effect01 animate__animated animate__fadeIn bigx"
+                            >
+                                <span>让AI学习 X 的游戏步骤</span>
+                            </a>
+                        )}
+                    </div>
+                    <div className="my-1">
+                        {(
+                            <a
+                                href="#training-modal"
+                                onClick={() => this.trainUp("O")}
+                                className="block mx-auto btn effect01 animate__animated animate__fadeIn bigo"
+                            >
+                                <span>让AI学习 O 的游戏步骤</span>
+                            </a>
+                        )}
+                    </div>
                 </div>
                 <div className="site mt-10">
                     <div id="training-modal" className="modal">
@@ -279,28 +310,6 @@ class Game extends React.Component {
                                 onClick={(i) => this.handleClick(i)}
                             />
                         </div>
-                    </div>
-                    <div className="my-1">
-                        {(winner || !current.squares.includes(null)) && (
-                            <a
-                                href="#training-modal"
-                                onClick={() => this.trainUp("X")}
-                                className="block mx-auto btn effect01 animate__animated animate__fadeIn bigx"
-                            >
-                                <span>训练AI像 X 一样玩游戏</span>
-                            </a>
-                        )}
-                    </div>
-                    <div className="my-1">
-                        {(winner || !current.squares.includes(null)) && (
-                            <a
-                                href="#training-modal"
-                                onClick={() => this.trainUp("O")}
-                                className="block mx-auto btn effect01 animate__animated animate__fadeIn bigo"
-                            >
-                                <span>训练AI像 O 一样玩游戏</span>
-                            </a>
-                        )}
                     </div>
                 </div>
             </>

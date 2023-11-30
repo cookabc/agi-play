@@ -51,7 +51,7 @@ h3 {
 
 ol,
 ul {
-    padding-left: 30px;
+    padding: 0;
 }
 
 .board-row:after {
@@ -143,6 +143,13 @@ ul {
 
 .btn:hover {
     text-decoration: none;
+}
+
+.list-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
 /*btn_background*/
