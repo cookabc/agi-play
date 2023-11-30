@@ -52,11 +52,23 @@ const sections: Section[] = [
                 description: '一起来了解下人脸打卡机是如何实现的吧！'
             },
             {
-                title: '波形采样',
-                url: '/wave',
-                imgUrl: '/static/images/tool_wave.png',
-                description: '声音是可以被看见的？音频、音量是什么含义？看看不同乐器的音色吧！'
+                title: "OpenAI工具",
+                url: "/openai",
+                imgUrl: "/static/images/ai_openai.png",
+                description: "AI是如何理解意图、识别情绪、回答问题的？这里可以找到答案。"
             },
+            {
+                title: '聊天助手',
+                url: 'https://chat-agischool.vercel.app',
+                imgUrl: '/static/images/ai_chat.png',
+                description: 'GPT模型是如何帮助大家提高效率的？这里有好多场景等你来探索，快来试试吧！'
+            },
+            {
+                title: 'AI训练场',
+                url: 'https://train-agischool.vercel.app',
+                imgUrl: '/static/images/ai_train.png',
+                description: '上传图片文件或摄像头拍摄照片，进行图像分类模型训练。'
+            }
         ]
     },
     {
@@ -87,30 +99,7 @@ const sections: Section[] = [
                 description: '让我们一同来解密AI是如何学会下棋的吧！'
             },
         ]
-    },
-    {
-        name: '外部链接',
-        children: [
-            {
-                title: "OpenAI工具",
-                url: "/openai",
-                imgUrl: "/static/images/ai_openai.png",
-                description: "AI是如何理解意图、识别情绪、回答问题的？这里可以找到答案。"
-            },
-            {
-                title: '聊天助手',
-                url: 'https://chat-agischool.vercel.app',
-                imgUrl: '/static/images/ai_chat.png',
-                description: 'GPT模型是如何帮助大家提高效率的？这里有好多场景等你来探索，快来试试吧！'
-            },
-            {
-                title: 'AI训练场',
-                url: 'https://train-agischool.vercel.app',
-                imgUrl: '/static/images/ai_train.png',
-                description: '上传图片文件或摄像头拍摄照片，进行图像分类模型训练。'
-            },
-        ]
-    },
+    }
 ];
 
 export default function Home() {
