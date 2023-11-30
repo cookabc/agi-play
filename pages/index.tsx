@@ -37,7 +37,7 @@ const sections: Section[] = [
             {
                 title: 'AI训练场',
                 url: 'https://train-agischool.vercel.app',
-                imgUrl: '/static/images/ai_train.png',
+                imgUrl: '/static/images/train_audio.png',
                 description: '上传图片文件或摄像头拍摄照片，进行图像分类模型训练。'
             }
         ]
@@ -60,13 +60,13 @@ const sections: Section[] = [
             {
                 title: '聊天助手',
                 url: 'https://chat-agischool.vercel.app',
-                imgUrl: '/static/images/ai_chat.png',
+                imgUrl: '/static/images/tool_chat.png',
                 description: 'GPT模型是如何帮助大家提高效率的？这里有好多场景等你来探索，快来试试吧！'
             },
             {
                 title: "OpenAI工具",
                 url: "/openai",
-                imgUrl: "/static/images/ai_openai.png",
+                imgUrl: "/static/images/tool_openai.png",
                 description: "AI是如何理解意图、识别情绪、回答问题的？这里可以找到答案。"
             }
         ]
