@@ -99,17 +99,22 @@
                 <select id="avatarSelect" class="w-[200px]" is="ui-select"></select>
             </div>
             <div class="py-[5px]">
-                <label class="cursor-pointer"><input type="checkbox" checked id="c1" name="checkbox" is="ui-checkbox"
-                                                     class="mr-2"/>Show Detection Debug</label>
+                <label class="cursor-pointer">
+                    <input type="checkbox" checked id="c1" name="checkbox" is="ui-checkbox" class="mr-2"/>
+                    Show Detection Debug
+                </label>
             </div>
             <div class="py-[5px]">
-                <label class="cursor-pointer"><input type="checkbox" id="c2" name="checkbox" is="ui-checkbox"
-                                                     class="mr-2"/>Show Illustration Debug</label>
+                <label class="cursor-pointer">
+                    <input type="checkbox" id="c2" name="checkbox" is="ui-checkbox" class="mr-2"/>
+                    Show Illustration Debug
+                </label>
             </div>
         </div>
         <div>
             <div id="info" style='display:none'></div>
-            <div class="ui-loading mb-2" id="loading"><span class="spinner-text mr-1" id="loadingStatus">正在加载 PoseNet 模型</span>
+            <div class="ui-loading mb-2" id="loading">
+                <span class="spinner-text mr-1" id="loadingStatus">正在加载 PoseNet 模型</span>
                 <ui-dot></ui-dot>
             </div>
             <div class="canvas-container max-w-full flex justify-center relative">
